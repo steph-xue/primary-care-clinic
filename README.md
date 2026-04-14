@@ -3,7 +3,7 @@
 </h1>
 
 <h2 align="center">
-  An Electronic Health Record (EHR) designed to optimize patient management for clinicians working in primary care clinics
+  An Electronic Health Record (EHR) designed to optimize patient management for clinicians working in primary care clinics.
 </h2>
 
 <p align="center">

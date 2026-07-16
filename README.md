@@ -65,10 +65,10 @@ Upon starting the application, users can choose to load existing clinic data fro
 ### Renaming the Clinic
 Users can rename the clinic at any time from the main menu.
 
-<p align="center"><b>Users can enter a new name for the clinic</b></p>
+<p align="center"><b>Users can enter in a new name for the clinic</b></p>
 <p align="center"><img src="./screenshots/rename.png?raw=true" alt="Rename Clinic" width="650"></p>
 
-<p align="center"><b>A confirmation message appears before the clinic name is changed</b></p>
+<p align="center"><b>A confirmation message will appear before the clinic name is changed</b></p>
 <p align="center"><img src="./screenshots/renameSuccess.png?raw=true" alt="Rename Clinic Success" width="650"></p>
 
 <p align="center"><b>The clinic has been successfully renamed</b></p>
@@ -87,10 +87,10 @@ Every patient record is displayed in a list view, sorted alphabetically by last 
 ### Viewing a Patient Record
 Each patient profile displays the patient's information, including demographic details such as first name, last name, date of birth, age, and personal health number, along with their allergies, medications, medical conditions, and clinical notes. Clinical notes are displayed in reverse chronological order, with the most recent visit shown first.
 
-<p align="center"><b>Patient record demographic and medical details</b></p>
+<p align="center"><b>Demographic and medical details in the patient record</b></p>
 <p align="center"><img src="./screenshots/profile1.png?raw=true" alt="Patient Profile 1" width="650"></p>
 
-<p align="center"><b>Patient record clinical notes</b></p>
+<p align="center"><b>Clinical notes in the patient record</b></p>
 <p align="center"><img src="./screenshots/profile2.png?raw=true" alt="Patient Profile 2" width="650"></p>
 
 <br>
@@ -98,16 +98,16 @@ Each patient profile displays the patient's information, including demographic d
 ### Editing and Removing a Patient Record
 Users can edit any of a patient's demographic fields, with validation in place to ensure information is entered correctly and a clear error message shown if any check fails. Allergies, medications, medical conditions, and clinical notes can each be added or removed directly from the profile. A patient's record can also be deleted entirely.
 
-<p align="center"><b>Users can change the patient's name</b></p>
+<p align="center"><b>Users can edit patient demographic information</b></p>
 <p align="center"><img src="./screenshots/editName.png?raw=true" alt="Edit Patient Name" width="650"></p>
 
-<p align="center"><b>Users can add an allergy to the patient's record</b></p>
+<p align="center"><b>Users can add medical information such as allergies</b></p>
 <p align="center"><img src="./screenshots/profileAddAllergy.png?raw=true" alt="Add Allergy" width="650"></p>
 
 <p align="center"><b>The allergy has been successfully added</b></p>
 <p align="center"><img src="./screenshots/profileAddAllergySuccess.png?raw=true" alt="Add Allergy Success" width="650"></p>
 
-<p align="center"><b>Users can remove an allergy from the patient's record</b></p>
+<p align="center"><b>Users can remove medical information such as allergies</b></p>
 <p align="center"><img src="./screenshots/profileRemoveAllergy.png?raw=true" alt="Remove Allergy" width="650"></p>
 
 <p align="center"><b>The allergy has been successfully removed</b></p>
@@ -122,20 +122,20 @@ Users can add a new patient record by entering the patient's demographic details
 <p align="center"><img src="./screenshots/newPatientEmpty1.png?raw=true" alt="New Patient Form 1" width="650"></p>
 <p align="center"><img src="./screenshots/newPatientEmpty2.png?raw=true" alt="New Patient Form 2" width="650"></p>
 
-<p align="center"><b>Users can fill in the patient's details</b></p>
+<p align="center"><b>Patient record details can be filled in</b></p>
 <p align="center"><img src="./screenshots/newPatient1.png?raw=true" alt="New Patient Filled 1" width="650"></p>
 <p align="center"><img src="./screenshots/newPatient2.png?raw=true" alt="New Patient Filled 2" width="650"></p>
 
-<p align="center"><b>Users can add medical information, such as allergies</b></p>
+<p align="center"><b>Medical information like allergies can be added</b></p>
 <p align="center"><img src="./screenshots/newPatientAddAllergy.png?raw=true" alt="New Patient Add Allergy" width="650"></p>
 
-<p align="center"><b>The patient's record has been successfully added</b></p>
+<p align="center"><b>The patient's record has been successfully created</b></p>
 <p align="center"><img src="./screenshots/newPatientSuccess.png?raw=true" alt="New Patient Success" width="650"></p>
 
-<p align="center"><b>Users can view the new patient in the list of all patient records</b></p>
+<p align="center"><b>The new patient can be found in the list all patient records</b></p>
 <p align="center"><img src="./screenshots/newPatientSuccessViewAll.png?raw=true" alt="New Patient in List View" width="650"></p>
 
-<p align="center"><b>Users can view the profile of the newly added patient</b></p>
+<p align="center"><b>The profile of the newly added patient can then be viewed</b></p>
 <p align="center"><img src="./screenshots/newProfile1.png?raw=true" alt="New Patient Profile 1" width="650"></p>
 <p align="center"><img src="./screenshots/newProfile2.png?raw=true" alt="New Patient Profile 2" width="650"></p>
 
@@ -147,7 +147,7 @@ Users can add a new clinical note with a visit title, the healthcare provider se
 <p align="center"><b>Users can add new clinical notes</b></p>
 <p align="center"><img src="./screenshots/addNoteEmpty.png?raw=true" alt="Add Note Empty" width="650"></p>
 
-<p align="center"><b>Users can fill in the details of the patient encounter</b></p>
+<p align="center"><b>Details of the patient encounter can be filled in</b></p>
 <p align="center"><img src="./screenshots/addNote.png?raw=true" alt="Add Note Filled" width="650"></p>
 
 <p align="center"><b>The new clinical note has been successfully added</b></p>
@@ -161,10 +161,10 @@ Users can add a new clinical note with a visit title, the healthcare provider se
 ### Editing and Removing a Clinical Note
 Existing clinical notes can have their title, body, and provider edited, or be removed entirely from the patient's record.
 
-<p align="center"><b>Users can change the title of an existing clinical note</b></p>
+<p align="center"><b>Users can edit details of an existing clinical note</b></p>
 <p align="center"><img src="./screenshots/editTitle.png?raw=true" alt="Edit Note Title" width="650"></p>
 
-<p align="center"><b>The clinical note's title has been successfully updated</b></p>
+<p align="center"><b>The clinical note been successfully updated</b></p>
 <p align="center"><img src="./screenshots/editTitleSuccess.png?raw=true" alt="Edit Note Title Success" width="650"></p>
 
 <p align="center"><b>Users can remove an existing clinical note</b></p>

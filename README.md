@@ -87,10 +87,10 @@ Every patient record is displayed in a list view, sorted alphabetically by last 
 ### Viewing a Patient Record
 Each patient profile displays the patient's information, including demographic details such as first name, last name, date of birth, age, and personal health number, along with their allergies, medications, medical conditions, and clinical notes. Clinical notes are displayed in reverse chronological order, with the most recent visit shown first.
 
-<p align="center"><b>Demographic and medical details in the patient record</b></p>
+<p align="center"><b>Patient demographics and medical history</b></p>
 <p align="center"><img src="./screenshots/profile1.png?raw=true" alt="Patient Profile 1" width="650"></p>
 
-<p align="center"><b>Clinical notes in the patient record</b></p>
+<p align="center"><b>Clinical notes</b></p>
 <p align="center"><img src="./screenshots/profile2.png?raw=true" alt="Patient Profile 2" width="650"></p>
 
 <br>

@@ -65,7 +65,7 @@ Upon starting the application, users can choose to load existing clinic data fro
 ### Renaming the Clinic
 Users can rename the clinic at any time from the main menu.
 
-<p align="center"><b>Users can enter a new name for the clinic"</b></p>
+<p align="center"><b>Users can enter a new name for the clinic</b></p>
 <p align="center"><img src="./screenshots/rename.png?raw=true" alt="Rename Clinic" width="650"></p>
 
 <p align="center"><b>Users can confirm the clinic name change</b></p>

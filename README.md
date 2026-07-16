@@ -212,7 +212,7 @@ Found in `MainUI.java` in the gui folder (`main/ui/gui/MainUI.java`), the GUI pr
 
 Working on this project deepened my understanding of how object-oriented programming principles shape a well-designed system in practice, not just in theory. Applying modularity, reusability, the single responsibility principle, abstraction, encapsulation, inheritance, and polymorphism throughout the codebase helped me see firsthand how these principles lead to cleaner separation of models, easier reusability, and stronger data integrity.
 
-<p align="center"><a href="./UML_Design_Diagram.pdf">View the UML Design Diagram</a></p>
+<p align="center"><img src="./screenshots/uml.png?raw=true" alt="UML Design Diagram" width="800"></p>
 
 ### Modularity and Reusability
 Each major concept in the clinic system is modeled as its own class, making the system modular for maintainability and reusability. These include:

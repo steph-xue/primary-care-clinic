@@ -68,7 +68,7 @@ Users can rename the clinic at any time from the main menu.
 <p align="center"><b>Users can enter in a new name for the clinic</b></p>
 <p align="center"><img src="./screenshots/rename.png?raw=true" alt="Rename Clinic" width="650"></p>
 
-<p align="center"><b>A confirmation message will appear before the clinic name is changed</b></p>
+<p align="center"><b>A confirmation message will appear before the clinic name is updated</b></p>
 <p align="center"><img src="./screenshots/renameSuccess.png?raw=true" alt="Rename Clinic Success" width="650"></p>
 
 <p align="center"><b>The clinic has been successfully renamed</b></p>

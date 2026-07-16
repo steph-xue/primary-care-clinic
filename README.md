@@ -46,14 +46,18 @@ The application is designed for use by medical professionals and administrative 
 ### Loading Screen
 A loading screen displays with an animated loading indicator during application startup before automatically transitioning to the start screen.
 
+<p align="center"><b>A loading screen is shown at startup</b></p>
 <p align="center"><img src="./screenshots/landing.png?raw=true" alt="Loading Screen" width="650"></p>
 
 <br>
 
-### Loading or Creating a Clinic
-Upon starting the application, users can choose to load an existing clinic from a saved file, or start fresh by creating a new clinic under a new name.
+### Loading Clinic Data from File or Creating a New Clinic
+Upon starting the application, users can choose to load existing clinic data from a saved file, or create a new clinic under a new name.
 
+<p align="center"><b>Users can choose to load saved clinic data from file or create a new clinic</b></p>
 <p align="center"><img src="./screenshots/load.png?raw=true" alt="Load Clinic" width="650"></p>
+
+<p align="center"><b>Selected clinic data has been successfully loaded</b></p>
 <p align="center"><img src="./screenshots/loadSuccess.png?raw=true" alt="Load Clinic Success" width="650"></p>
 
 <br>
@@ -61,9 +65,13 @@ Upon starting the application, users can choose to load an existing clinic from 
 ### Renaming the Clinic
 Users can rename the clinic at any time from the main menu.
 
-<p align="center"><b>Renaming the clinic from "MedCare Clinic" to "CarePlus Clinic"</b></p>
+<p align="center"><b>Entering a new name for "MedCare Clinic"</b></p>
 <p align="center"><img src="./screenshots/rename.png?raw=true" alt="Rename Clinic" width="650"></p>
+
+<p align="center"><b>Confirming the clinic name change</b></p>
 <p align="center"><img src="./screenshots/renameSuccess.png?raw=true" alt="Rename Clinic Success" width="650"></p>
+
+<p align="center"><b>The clinic has been successfully renamed to "CarePlus Clinic"</b></p>
 <p align="center"><img src="./screenshots/renameResult.png?raw=true" alt="Rename Clinic Result" width="650"></p>
 
 <br>
@@ -71,71 +79,98 @@ Users can rename the clinic at any time from the main menu.
 ### Viewing All Patient Records
 Every patient record is displayed in a list view, sorted alphabetically by last name and then first name. Double clicking a patient in the list opens their full profile.
 
+<p align="center"><b>The full view of all patient records</b></p>
 <p align="center"><img src="./screenshots/viewAllPatients.png?raw=true" alt="View All Patients" width="650"></p>
 
 <br>
 
-### Viewing and Editing a Patient Record
-Each patient profile displays and allows editing of the patient's first name, last name, date of birth, age, personal health number, allergies, medications, and medical conditions, with allergies, medications, and medical conditions each individually addable and removable. Fields are validated with a clear error message shown if any check fails. A patient record can also be removed entirely from the clinic directly from this screen.
+### Viewing a Patient Record
+Each patient profile displays the patient's information, including demographic details such as first name, last name, date of birth, age, and personal health number, along with their allergies, medications, medical conditions, and clinical notes. Clinical notes are displayed in reverse chronological order, with the most recent visit shown first.
 
-<p align="center"><b>Patient profile for "Mya Cornell"</b></p>
+<p align="center"><b>Patient record demographic and clinical details</p>
 <p align="center"><img src="./screenshots/profile1.png?raw=true" alt="Patient Profile 1" width="650"></p>
+
+<p align="center"><b>Patient record clinical notes</b></p>
 <p align="center"><img src="./screenshots/profile2.png?raw=true" alt="Patient Profile 2" width="650"></p>
 
-<p align="center"><b>Changing the first name from "Mya" to "Mira"</b></p>
+<br>
+
+### Editing and Removing a Patient Record
+Users can edit any of a patient's demographic fields, with validation in place to ensure information is entered correctly and a clear error message shown if any check fails. Allergies, medications, medical conditions, and clinical notes can each be added or removed directly from the profile. A patient's record can also be deleted entirely.
+
+<p align="center"><b>The patient's name can be changed</b></p>
 <p align="center"><img src="./screenshots/editName.png?raw=true" alt="Edit Patient Name" width="650"></p>
 
-<p align="center"><b>Adding a clindamycin allergy</b></p>
+<p align="center"><b>Adding a clindamycin allergy to the patient's record</b></p>
 <p align="center"><img src="./screenshots/profileAddAllergy.png?raw=true" alt="Add Allergy" width="650"></p>
+
+<p align="center"><b>The clindamycin allergy has been successfully added</b></p>
 <p align="center"><img src="./screenshots/profileAddAllergySuccess.png?raw=true" alt="Add Allergy Success" width="650"></p>
 
-<p align="center"><b>Removing a codeine allergy</b></p>
+<p align="center"><b>Removing a codeine allergy from the patient's record</b></p>
 <p align="center"><img src="./screenshots/profileRemoveAllergy.png?raw=true" alt="Remove Allergy" width="650"></p>
+
+<p align="center"><b>The codeine allergy has been successfully removed</b></p>
 <p align="center"><img src="./screenshots/profileRemoveAllergySuccess.png?raw=true" alt="Remove Allergy Success" width="650"></p>
 
 <br>
 
 ### Adding a New Patient Record
-Users can register a new patient by entering their first name, last name, date of birth, age, and personal health number, along with any number of allergies, medications, and medical conditions. Fields are validated before the record is created, with a clear error message shown if any check fails, and the new patient appears in the clinic's patient list immediately after being added.
+Users can add a new patient record by entering the patient's demographic details, including first name, last name, date of birth, age, and personal health number, along with any number of allergies, medications, and medical conditions. Fields are validated to ensure information is valid and, where required, not left empty, with a clear error message shown if any check fails. The new patient then appears in the clinic's patient list immediately after being added.
 
-<p align="center"><b>Creating a new patient record</b></p>
+<p align="center"><b>Users can create a new patient record</b></p>
 <p align="center"><img src="./screenshots/newPatientEmpty1.png?raw=true" alt="New Patient Form 1" width="650"></p>
 <p align="center"><img src="./screenshots/newPatientEmpty2.png?raw=true" alt="New Patient Form 2" width="650"></p>
 
-<p align="center"><b>Creating a new patient record with sample patient data</b></p>
+<p align="center"><b>Patient details can be filled in</b></p>
 <p align="center"><img src="./screenshots/newPatient1.png?raw=true" alt="New Patient Filled 1" width="650"></p>
 <p align="center"><img src="./screenshots/newPatient2.png?raw=true" alt="New Patient Filled 2" width="650"></p>
 
-<p align="center"><b>Adding an allergy</b></p>
+<p align="center"><b>Medical information like allergies can be added</b></p>
 <p align="center"><img src="./screenshots/newPatientAddAllergy.png?raw=true" alt="New Patient Add Allergy" width="650"></p>
 
-<p align="center"><b>Adding the patient to the clinic</b></p>
+<p align="center"><b>The patient's record has been successfully added</b></p>
 <p align="center"><img src="./screenshots/newPatientSuccess.png?raw=true" alt="New Patient Success" width="650"></p>
+
+<p align="center"><b>The new patient can be seen in view of all patient records</b></p>
 <p align="center"><img src="./screenshots/newPatientSuccessViewAll.png?raw=true" alt="New Patient in List View" width="650"></p>
 
-<p align="center"><b>New patient profile</b></p>
+<p align="center"><b>The profile of the newly added patient can be viewed</b></p>
 <p align="center"><img src="./screenshots/newProfile1.png?raw=true" alt="New Patient Profile 1" width="650"></p>
 <p align="center"><img src="./screenshots/newProfile2.png?raw=true" alt="New Patient Profile 2" width="650"></p>
 
 <br>
 
-### Viewing and Managing Clinical Notes
-Every past clinical note for a patient is displayed in reverse chronological order, with the most recent visit shown first. A new clinical note captures the visit title, the healthcare provider seen, and the visit details, with the visit date assigned automatically based on the current system date. No note can be saved with an empty title, provider, or body, with a clear error message shown if any field is left blank. Existing notes can have their title, body, and provider edited, or be removed entirely from the patient's record.
+### Adding a Clinical Note
+Users can add a new clinical note with a visit title, the healthcare provider seen, and the visit details, with the visit date assigned automatically based on the current system date. No note can be saved with an empty title, provider, or body, with a clear error message shown if any field is left blank.
 
-<p align="center"><b>Creating a new clinical note</b></p>
+<p align="center"><b>Users can add new clinical notes</b></p>
 <p align="center"><img src="./screenshots/addNoteEmpty.png?raw=true" alt="Add Note Empty" width="650"></p>
 
-<p align="center"><b>Adding clinical notes with sample clinical information</b></p>
+<p align="center"><b>Details of the patient encounter can be filled in</b></p>
 <p align="center"><img src="./screenshots/addNote.png?raw=true" alt="Add Note Filled" width="650"></p>
+
+<p align="center"><b>The new clinical note has been successfully added</b></p>
 <p align="center"><img src="./screenshots/addNoteSuccess.png?raw=true" alt="Add Note Success" width="650"></p>
+
+<p align="center"><b>All clinical notes can be viewed in the patient's profile</b></p>
 <p align="center"><img src="./screenshots/addNoteSuccessResult.png?raw=true" alt="Add Note Success Result" width="650"></p>
 
-<p align="center"><b>Changing the title of a clinical note</b></p>
+<br>
+
+### Editing and Removing a Clinical Note
+Existing clinical notes can have their title, body, and provider edited, or be removed entirely from the patient's record.
+
+<p align="center"><b>Changing the title of an existing clinical note</b></p>
 <p align="center"><img src="./screenshots/editTitle.png?raw=true" alt="Edit Note Title" width="650"></p>
+
+<p align="center"><b>The clinical note's title has been successfully updated</b></p>
 <p align="center"><img src="./screenshots/editTitleSuccess.png?raw=true" alt="Edit Note Title Success" width="650"></p>
 
-<p align="center"><b>Removing a clinical note</b></p>
+<p align="center"><b>Removing an existing clinical note</b></p>
 <p align="center"><img src="./screenshots/removeNote.png?raw=true" alt="Remove Note" width="650"></p>
+
+<p align="center"><b>The clinical note has been successfully removed</b></p>
 <p align="center"><img src="./screenshots/removeNoteSuccess.png?raw=true" alt="Remove Note Success" width="650"></p>
 
 <br>
@@ -143,6 +178,7 @@ Every past clinical note for a patient is displayed in reverse chronological ord
 ### Saving and Quitting
 Upon quitting the application, users are given the option to save their clinic data to file or quit without saving.
 
+<p align="center"><b>Users can choose to save before quitting or quit without saving</b></p>
 <p align="center"><img src="./screenshots/save.png?raw=true" alt="Save and Quit" width="650"></p>
 
 <br>

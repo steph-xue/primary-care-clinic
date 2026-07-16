@@ -13,7 +13,7 @@
 <br>
 
 ## Table of Contents
-- [Motivation](#motivation)
+- [Problem Statement](#problem-statement)
 - [Overview](#overview)
 - [Features](#features)
 - [Tech Stack](#tech-stack)
@@ -22,14 +22,14 @@
 - [JSON-Based Data Persistence](#json-based-data-persistence)
 - [Unit Testing](#unit-testing)
 - [Event Log](#event-log)
-- [Potential Design Improvements](#potential-design-improvements)
+- [Future Improvements](#future-improvements)
 - [Getting Started](#getting-started)
 
 <br>
 
-## Motivation
+## Problem Statement
 
-This project is especially meaningful to me because of my background in healthcare and my experience working across community pharmacy, hospital, and ambulatory care settings. Through these roles, I have used several electronic health record systems and seen how inefficient workflows, fragmented information, and unintuitive interfaces can make patient care more difficult for healthcare professionals. Building an EHR application allows me to combine my healthcare experience with my technical skills to explore how thoughtful software design can improve the way clinicians access, manage, and use patient information. It also reflects my broader interest in applying technology to streamline healthcare workflows and support more efficient, user-centered care.
+This project draws on my background in healthcare and my experience working across community pharmacy, hospital, and ambulatory care settings. Through these roles, I have used several electronic health record systems and seen how inefficient workflows, fragmented information, and unintuitive interfaces can make patient care more difficult for healthcare professionals. Building an EHR application allows me to combine my healthcare experience with my technical skills to explore how thoughtful software design can improve the way clinicians access, manage, and use patient information. It also reflects my broader interest in applying technology to streamline healthcare workflows and support more efficient, user-centered care.
 
 <br>
 
@@ -289,7 +289,7 @@ Fri Mar 28 01:59:14 PDT 2025 - Clinic name set to Careplus
 
 <br>
 
-## Potential Design Improvements
+## Future Improvements
 
 There are some things that would be refactored to improve the design of this project with more time:
 - Refactoring the PrimaryCareClinicApp class of the UI package, which runs the functionality of the command-line interface, by breaking it into smaller, separate classes that each align with the single responsibility principle. This would ensure each class handles one distinct task (such as user input, command parsing, or output display) to improve cohesion, readability, and maintainability.

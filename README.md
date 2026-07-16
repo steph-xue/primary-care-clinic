@@ -3,7 +3,7 @@
 </h1>
 
 <h4 align="center">
-  An Electronic Health Record (EHR) desktop application for managing patient records and clinical notes in a primary care clinic setting.
+  A desktop application for managing patient records and clinical notes in a primary care clinic setting.
 </h4>
 
 <p align="center">

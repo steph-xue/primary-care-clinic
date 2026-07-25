@@ -13,9 +13,9 @@ import java.util.List;
 import java.util.Collections;
 
 // Image References
-// Patient image images/patient.jpg retrieved from https://www.istockphoto.com/vector/patient-icon-vector-of-
+// Patient image /images/patient.jpg retrieved from https://www.istockphoto.com/vector/patient-icon-vector-of-
 // male-person-profile-avatar-symbol-for-medical-treatment-in-gm1147248235-309382448
-// Edit image images/edit.png retrieved from https://www.veryicon.com/icons/miscellaneous/linear-small-icon/
+// Edit image /images/edit.png retrieved from https://www.veryicon.com/icons/miscellaneous/linear-small-icon/
 // edit-246.html
 
 // ViewPatientProfileUI displays details of a specific patient profile
@@ -87,7 +87,7 @@ public class ViewPatientProfileUI extends JPanel {
     // MODIFIES: this
     // EFFECTS: Create and add image for patient profile
     public void addPatientImage() {
-        ImageIcon patientImage = new ImageIcon("images/patient.jpg");
+        ImageIcon patientImage = new ImageIcon(getClass().getResource("/images/patient.jpg"));
         patientImage = new ImageIcon(patientImage.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH));  
 
         patientImageLabel = new JLabel();
@@ -280,7 +280,7 @@ public class ViewPatientProfileUI extends JPanel {
     // returns the editing button as a JButton
     public JButton createEditButton(String header, String fieldName, JComponent dataComponent) {
         JButton editButton = new JButton();
-        ImageIcon editIcon = new ImageIcon("images/edit.png");
+        ImageIcon editIcon = new ImageIcon(getClass().getResource("/images/edit.png"));
         Image scaledImage = editIcon.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH);
         editButton.setIcon(new ImageIcon(scaledImage));
         editButton.setPreferredSize(new Dimension(15, 15));
@@ -302,7 +302,7 @@ public class ViewPatientProfileUI extends JPanel {
                     "Enter new " + header.substring(0, header.length() - 2) + ": ",
                     "Edit",
                     JOptionPane.DEFAULT_OPTION,
-                    new ImageIcon("images/health.jpg"), null, null
+                    new ImageIcon(getClass().getResource("/images/health.jpg")), null, null
             );
     
             if (newValue != null && !newValue.trim().isEmpty()) {
@@ -628,7 +628,7 @@ public class ViewPatientProfileUI extends JPanel {
     // to edit the selected field; returns the editing button as a JButton
     public JButton createEditNoteButton(ClinicalNote note, String fieldName, JComponent dataComponent) {
         JButton editButton = new JButton();
-        ImageIcon editIcon = new ImageIcon("images/edit.png");
+        ImageIcon editIcon = new ImageIcon(getClass().getResource("/images/edit.png"));
         Image scaledImage = editIcon.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH);
         editButton.setIcon(new ImageIcon(scaledImage));
         editButton.setPreferredSize(new Dimension(15, 15));
@@ -652,7 +652,7 @@ public class ViewPatientProfileUI extends JPanel {
                     "Enter new " + fieldName + ": ",
                     "Edit",
                     JOptionPane.DEFAULT_OPTION, 
-                    new ImageIcon("images/health.jpg"), null, null
+                    new ImageIcon(getClass().getResource("/images/health.jpg")), null, null
             );
 
             if (newValue != null && !newValue.trim().isEmpty()) {

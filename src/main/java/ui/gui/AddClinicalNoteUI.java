@@ -13,7 +13,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 // Image References
-// JOptionPane Health Logo images/health.jpg retrieved from https://www.freepik.com/premium-vector/
+// JOptionPane Health Logo /images/health.jpg retrieved from https://www.freepik.com/premium-vector/
 //basic-healthcare-icon-vector-image-can-be-used-home-services_157661598.html
 
 // AddClinicalNoteUI displays a form to add a new clinical note for a specific patient
@@ -200,7 +200,7 @@ public class AddClinicalNoteUI extends JPanel {
         JOptionPane.showMessageDialog(
                     this,
                     "New clinical note \"" + title + "\" added successfully!",
-                    "Success", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("images/health.jpg"));
+                    "Success", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("/images/health.jpg")));
 
         parent.viewPatientProfileScreen(patient);
     }

@@ -13,7 +13,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 // Image References
-// JOptionPane Health Logo images/health.jpg retrieved from https://www.freepik.com/premium-vector/
+// JOptionPane Health Logo /images/health.jpg retrieved from https://www.freepik.com/premium-vector/
 //basic-healthcare-icon-vector-image-can-be-used-home-services_157661598.html
 
 // AddPatientUI displays a form to add a new patient to the clinic
@@ -361,7 +361,7 @@ public class AddPatientUI extends JPanel {
         JOptionPane.showMessageDialog(
                     this,
                     "New patient \"" + firstName + " " + lastName + "\" added successfully!",
-                    "Success", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("images/health.jpg"));
+                    "Success", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass().getResource("/images/health.jpg")));
 
         parent.getViewPatientsScreen().loadPatients();
         parent.showViewPatientsScreen();

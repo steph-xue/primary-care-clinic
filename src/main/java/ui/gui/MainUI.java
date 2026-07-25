@@ -27,7 +27,7 @@ import java.io.FileNotFoundException;
 // Code referenced from SpaceInvaders, RobustTrafficLights, AlarmSystem, DrawingPlayer, SmartHome
 
 // Image References
-// JOptionPane Health Logo images/health.jpg retrieved from https://www.freepik.com/premium-vector/
+// JOptionPane Health Logo /images/health.jpg retrieved from https://www.freepik.com/premium-vector/
 //basic-healthcare-icon-vector-image-can-be-used-home-services_157661598.html
 
 // MainUI displays the main frame and primary contents of the primary care clinic application
@@ -125,7 +125,7 @@ public class MainUI extends JFrame implements WindowListener {
                     "Clinic \"" + clinic.getClinicName() + "\" loaded successfully!",
                     "Success", 
                     JOptionPane.INFORMATION_MESSAGE,
-                    new ImageIcon("images/health.jpg"));
+                    new ImageIcon(getClass().getResource("/images/health.jpg")));
 
             viewPatientsScreen.getNavBar().updateClinicTitle();
             viewPatientsScreen.loadPatients();
@@ -145,7 +145,7 @@ public class MainUI extends JFrame implements WindowListener {
                 "Enter new clinic name: ",
                 "New Clinic",
                 JOptionPane.DEFAULT_OPTION, 
-                new ImageIcon("images/health.jpg"), null, null);
+                new ImageIcon(getClass().getResource("/images/health.jpg")), null, null);
 
         if (clinicName != null && !clinicName.trim().isEmpty()) {
             JOptionPane.showMessageDialog(
@@ -153,7 +153,7 @@ public class MainUI extends JFrame implements WindowListener {
                     "New clinic \"" + clinicName + "\" created successfully!",
                     "Success", 
                     JOptionPane.INFORMATION_MESSAGE,
-                    new ImageIcon("images/health.jpg"));
+                    new ImageIcon(getClass().getResource("/images/health.jpg")));
             clinic.setClinicName(clinicName);
             viewPatientsScreen.getNavBar().updateClinicTitle();
         } else {
@@ -172,7 +172,7 @@ public class MainUI extends JFrame implements WindowListener {
                 "Rename clinic: ",
                 "Rename Clinic",
                 JOptionPane.DEFAULT_OPTION, 
-                new ImageIcon("images/health.jpg"), null, null);
+                new ImageIcon(getClass().getResource("/images/health.jpg")), null, null);
 
         if (clinicName != null && !clinicName.trim().isEmpty()) {
             JOptionPane.showMessageDialog(
@@ -180,7 +180,7 @@ public class MainUI extends JFrame implements WindowListener {
                     "Clinic successfully renamed to \"" + clinicName + "\"!",
                     "Success", 
                     JOptionPane.INFORMATION_MESSAGE,
-                    new ImageIcon("images/health.jpg"));
+                    new ImageIcon(getClass().getResource("/images/health.jpg")));
             clinic.setClinicName(clinicName);
         } else {
             JOptionPane.showMessageDialog(this, "Clinic name cannot be empty!", "Error", 
@@ -207,7 +207,7 @@ public class MainUI extends JFrame implements WindowListener {
                     "Saved \"" + clinic.getClinicName() + "\" to " + JSON_STORE,
                     "Success", 
                     JOptionPane.INFORMATION_MESSAGE,
-                    new ImageIcon("images/health.jpg"));
+                    new ImageIcon(getClass().getResource("/images/health.jpg")));
         } catch (FileNotFoundException e) {
             JOptionPane.showMessageDialog(this, "Unable to write to file: " + JSON_STORE, "Error", 
                     JOptionPane.ERROR_MESSAGE);
@@ -259,8 +259,9 @@ public class MainUI extends JFrame implements WindowListener {
         cardLayout.show(mainPanel, "note");
     }
     
-    // EFFECTS: Runs the main application 
+    // EFFECTS: Runs the main application
     public static void main(String[] args) {
+        System.setProperty("apple.awt.application.name", "Primary Care Clinic Application");
         new MainUI();
     }
 

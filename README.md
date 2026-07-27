@@ -35,9 +35,9 @@ This project is especially meaningful to me because of my background in healthca
 
 ## Overview
 
-This project is a desktop Electronic Health Record (EHR) application designed to streamline and enhance patient management for clinicians working in primary care clinics. This application provides healthcare professionals with an intuitive and efficient platform to organize, update, and access patient information. It allows clinicians to manage an alphabetically sorted list of registered patients, add new patient profiles, update existing information, and remove patients from the system. Each patient record tracks demographic and clinical information, including name, date of birth, age, personal health number, allergies, medications, and medical conditions, alongside a full history of clinical notes documenting past visits. It is built entirely in Java, with a graphical interface built using Java Swing and a parallel command-line interface, both sharing the same underlying model and persistence logic so behavior stays consistent regardless of how the application is accessed. JSON handles serialization, allowing clinic data to be saved to and loaded from files between sessions, and JUnit Jupiter is used for unit testing across the model and persistence layers.
+This project is a desktop Electronic Health Record (EHR) application designed to streamline and enhance patient management for clinicians working in primary care clinics. The application is designed for use by medical professionals, including physicians, clinical pharmacists, and nurses, to support accurate record keeping and improve patient care. It allows clinicians to manage an alphabetically sorted list of registered patients, add new patient profiles, update existing information, and remove patients from the system. Each patient record tracks demographic and clinical information, including name, date of birth, age, personal health number, allergies, medications, and medical conditions, alongside a full history of clinical notes documenting past visits.
 
-The application is designed for use by medical professionals and administrative staff, including physicians, clinical pharmacists, nurses, and medical office assistants, to streamline patient management and support accurate record keeping for improved patient care.
+The application is built entirely in Java, with a graphical interface built using Java Swing and a parallel command-line interface, both sharing the same underlying model and persistence logic so behavior stays consistent regardless of how the application is accessed. JSON handles serialization, allowing clinic data to be saved to and loaded from files between sessions, and JUnit Jupiter is used for unit testing across the model and persistence layers. GitHub Actions automatically builds and publishes downloadable macOS and Windows installers.
 
 <br>
 
@@ -191,6 +191,7 @@ Upon quitting the application, users are given the option to save their clinic d
 | Backend | Java (core application logic) |
 | Storage | JSON (local file storage) |
 | Testing | JUnit Jupiter (unit testing framework) |
+| CI/CD | GitHub Actions (automated builds of downloadable macOS/Windows installers) |
 
 > **Note:** Java Swing powers the graphical user interface, but the application can also be run through a command-line interface built in Java, both sharing the same underlying model and persistence logic.
 
@@ -201,10 +202,10 @@ Upon quitting the application, users are given the option to save their clinic d
 To maximize usability and accessibility, the application implements two distinct user interfaces that share the same backend logic. Both interfaces interact with the same model and persistence layers, ensuring consistent behavior regardless of how the application is accessed.
 
 ### Command-Line Interface (CLI)
-Found in `Main.java` in the cli folder (`main/ui/cli/Main.java`), the CLI offers a text-based interface ideal for terminal-based workflows, with simple menu-driven navigation and input validation to guide users through interactions.
+Found in `Main.java` in the cli folder (`src/main/java/ui/cli/Main.java`), the CLI offers a text-based interface ideal for terminal-based workflows, with simple menu-driven navigation and input validation to guide users through interactions.
 
 ### Graphical User Interface (GUI)
-Found in `MainUI.java` in the gui folder (`main/ui/gui/MainUI.java`), the GUI provides a visual, user-friendly experience with clearly structured panels and a navigation bar that enables smooth switching between screens.
+Found in `MainUI.java` in the gui folder (`src/main/java/ui/gui/MainUI.java`), the GUI provides a visual, user-friendly experience with clearly structured panels and a navigation bar that enables smooth switching between screens.
 
 <br>
 
@@ -236,11 +237,16 @@ Writable is an interface implemented by model classes such as Clinic, Patient, a
 
 To allow users to save and reload their clinic data between sessions, the application implements data persistence using custom JSON-based file readers and writers, letting users choose between starting a new session or loading a previously saved clinic, with error handling in place for missing files to improve reliability.
 
+Clinic data is stored at a fixed location in the user's home directory (`~/.primarycareclinic/clinic.json`) rather than relative to wherever the application happens to be launched from, so saving and loading behave consistently whether the app is run from source or as a packaged installer.
+
 ### Writing Data
 `JsonWriter.java` is responsible for converting the current state of the Clinic object into a well-structured JSON file, including all patients and their associated clinical notes, allowing for easy storage, backup, and transferability of clinic data.
 
 ### Reading Data
 `JsonReader.java` reads a previously saved JSON file and reconstructs the complete clinic state by creating new Clinic, Patient, and ClinicalNote objects based on the serialized data.
+
+### Initializing Sample Data
+`DataInitializer.java` ensures the application always has clinic data to load on first use. If no save file exists yet at the expected location, it copies a bundled sample dataset into place, so the app opens with example patients already available instead of an empty state.
 
 <br>
 
@@ -252,9 +258,10 @@ Thorough testing was critical to ensuring the reliability and robustness of the 
 - TestClinic.java
 - TestPatient.java
 - TestClinicalNote.java
-- TestData.java
+- TestDate.java
 
 **Persistence:**
+- DataInitializerTest.java
 - JsonReaderTest.java
 - JsonTest.java
 - JsonWriterTest.java
@@ -300,7 +307,13 @@ There are some things that would be refactored to improve the design of this pro
 
 ## Getting Started
 
-Follow the steps below to set up and run the application on your own machine.
+Don't want to build from source? Download a ready-to-run installer — no Java installation required:
+
+**[⬇ Download for macOS (.dmg)](https://github.com/steph-xue/PrimaryCareClinic/releases/latest/download/PrimaryCareClinic-mac.dmg)** &nbsp;|&nbsp; **[⬇ Download for Windows (.zip)](https://github.com/steph-xue/PrimaryCareClinic/releases/latest/download/PrimaryCareClinic-windows.zip)**
+
+On Windows, unzip the download and run `PrimaryCareClinic.exe` inside. All versions are also available on the [Releases page](https://github.com/steph-xue/PrimaryCareClinic/releases).
+
+Otherwise, follow the steps below to build and run the application from source.
 
 **Prerequisites**
 
@@ -348,5 +361,3 @@ java -cp "bin:lib/*" ui.cli.Main
 <br>
 
 Once the application starts, you can begin adding patients, clinical notes, and saving your clinic data.
-
-> **Note:** You can also open the project in [VS Code](https://code.visualstudio.com/) with the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) installed — the classpath is preconfigured via `.vscode/settings.json` — and run `Main.java` (`src/main/java/ui/cli/Main.java`) or `MainUI.java` (`src/main/java/ui/gui/MainUI.java`) directly from the editor instead of steps 2 and 3.

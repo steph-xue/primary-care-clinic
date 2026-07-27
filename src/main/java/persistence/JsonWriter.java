@@ -19,10 +19,15 @@ public class JsonWriter {
     }
 
     // MODIFIES: this
-    // EFFECTS: opens writer; throws FileNotFoundException if destination file cannot
-    // be opened for writing
+    // EFFECTS: opens writer, creating the destination's parent directories if needed;
+    // throws FileNotFoundException if destination file cannot be opened for writing
     public void open() throws FileNotFoundException {
-        writer = new PrintWriter(new File(destination));
+        File file = new File(destination);
+        File parentDir = file.getParentFile();
+        if (parentDir != null) {
+            parentDir.mkdirs();
+        }
+        writer = new PrintWriter(file);
     }
 
     // MODIFIES: this

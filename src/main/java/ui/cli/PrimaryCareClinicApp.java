@@ -5,16 +5,20 @@ import model.ClinicalNote;
 import model.Date;
 import model.Patient;
 
+import persistence.DataInitializer;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Scanner;
 
 public class PrimaryCareClinicApp {
-    private static final String JSON_STORE = "./data/clinic.json";
+    private static final String JSON_STORE = System.getProperty("user.home") + File.separator
+            + ".primarycareclinic" + File.separator + "clinic.json";
+    private static final String SAMPLE_DATA_RESOURCE = "/data/sampleClinic.json";
 
     private Scanner scanner;
     private JsonWriter jsonWriter;
@@ -50,6 +54,13 @@ public class PrimaryCareClinicApp {
     // but the clinic is not yet running (new clinic not created/named yet)
     public void init() {
         this.scanner = new Scanner(System.in);
+
+        try {
+            DataInitializer.initializeIfMissing(JSON_STORE, SAMPLE_DATA_RESOURCE);
+        } catch (IOException e) {
+            System.err.println("Unable to initialize sample clinic data: " + e.getMessage());
+        }
+
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
         this.isProgramRunning = true;

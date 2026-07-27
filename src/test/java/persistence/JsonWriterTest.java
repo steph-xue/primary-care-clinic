@@ -5,20 +5,25 @@ import model.ClinicalNote;
 import model.Date;
 import model.Patient;
 
+import java.io.File;
 import java.util.List;
 import java.util.ArrayList;
 import java.io.IOException;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class JsonWriterTest extends JsonTest {
+
+    @TempDir
+    File tempDir;
 
     @Test
     void testWriterFileDoesNotExist() {
         try {
             Clinic clinic = new Clinic("My Clinic");
-            JsonWriter writer = new JsonWriter("./data/my\0illegal:fileName.json");
+            JsonWriter writer = new JsonWriter(new File(tempDir, "my\0illegal:fileName.json").getPath());
             writer.open();
             fail("IOException was expected");
         } catch (IOException e) {
@@ -30,12 +35,13 @@ public class JsonWriterTest extends JsonTest {
     void testWriterEmptyWorkroom() {
         try {
             Clinic clinic = new Clinic("My Clinic");
-            JsonWriter writer = new JsonWriter("./data/testWriterEmptyClinic.json");
+            String destination = new File(tempDir, "testWriterEmptyClinic.json").getPath();
+            JsonWriter writer = new JsonWriter(destination);
             writer.open();
             writer.write(clinic);
             writer.close();
 
-            JsonReader reader = new JsonReader("./data/testWriterEmptyClinic.json");
+            JsonReader reader = new JsonReader(destination);
             clinic = reader.read();
             assertEquals("My Clinic", clinic.getClinicName());
             assertEquals(0, clinic.getPatients().size());
@@ -53,11 +59,12 @@ public class JsonWriterTest extends JsonTest {
             Patient patient2 = makePatient2();
             clinic.addPatient(patient2);
 
-            JsonWriter writer = new JsonWriter("./data/testWriterGeneralClinic.json");
+            String destination = new File(tempDir, "testWriterGeneralClinic.json").getPath();
+            JsonWriter writer = new JsonWriter(destination);
             writer.open();
             writer.write(clinic);
             writer.close();
-            JsonReader reader = new JsonReader("./data/testWriterGeneralClinic.json");
+            JsonReader reader = new JsonReader(destination);
             clinic = reader.read();
 
             List<Patient> patients = clinic.getPatients();

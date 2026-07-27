@@ -16,7 +16,7 @@ public class JsonReaderTest extends JsonTest {
 
     @Test
     void testReaderFileDoesNotExist() {
-        JsonReader reader = new JsonReader("./src/test/resources/noExistingFile.json");
+        JsonReader reader = new JsonReader("./src/test/resources/data/noExistingFile.json");
         try {
             Clinic clinic = reader.read();
             fail("IOException expected");
@@ -27,7 +27,7 @@ public class JsonReaderTest extends JsonTest {
 
     @Test
     void testReaderEmptyClinic() {
-        JsonReader reader = new JsonReader("./src/test/resources/testReaderEmptyClinic.json");
+        JsonReader reader = new JsonReader("./src/test/resources/data/testReaderEmptyClinic.json");
         try {
             Clinic clinic = reader.read();
             assertEquals("My Clinic", clinic.getClinicName());
@@ -39,7 +39,7 @@ public class JsonReaderTest extends JsonTest {
 
     @Test
     void testReaderGeneralClinic() {
-        JsonReader reader = new JsonReader("./src/test/resources/testReaderGeneralClinic.json");
+        JsonReader reader = new JsonReader("./src/test/resources/data/testReaderGeneralClinic.json");
         try {
             Clinic clinic = reader.read();
             List<Patient> patients = clinic.getPatients();

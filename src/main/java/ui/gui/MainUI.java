@@ -5,6 +5,7 @@ import model.Patient;
 import model.Event;
 import model.EventLog;
 
+import persistence.DataInitializer;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
@@ -12,6 +13,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.io.File;
 import java.io.IOException;
 import java.io.FileNotFoundException;
 
@@ -32,7 +34,9 @@ import java.io.FileNotFoundException;
 
 // MainUI displays the main frame and primary contents of the primary care clinic application
 public class MainUI extends JFrame implements WindowListener {
-    private static final String JSON_STORE = "./data/clinic.json";
+    private static final String JSON_STORE = System.getProperty("user.home") + File.separator
+            + ".primarycareclinic" + File.separator + "clinic.json";
+    private static final String SAMPLE_DATA_RESOURCE = "/data/sampleClinic.json";
 
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
@@ -62,7 +66,13 @@ public class MainUI extends JFrame implements WindowListener {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setLocationRelativeTo(null);
-        addWindowListener(this);   
+        addWindowListener(this);
+
+        try {
+            DataInitializer.initializeIfMissing(JSON_STORE, SAMPLE_DATA_RESOURCE);
+        } catch (IOException e) {
+            System.err.println("Unable to initialize sample clinic data: " + e.getMessage());
+        }
 
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);

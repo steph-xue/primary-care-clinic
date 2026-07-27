@@ -1,0 +1,67 @@
+name: Build Windows Installer
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Determine app version
+        shell: bash
+        run: |
+          if [[ "$GITHUB_REF" == refs/tags/v* ]]; then
+            echo "APP_VERSION=${GITHUB_REF#refs/tags/v}" >> "$GITHUB_ENV"
+          else
+            echo "APP_VERSION=0.0.0" >> "$GITHUB_ENV"
+          fi
+
+      - name: Compile sources and build runnable jar
+        shell: bash
+        run: |
+          mkdir -p build/classes build/input
+          javac -cp "lib/*" -d build/classes $(find src/main/java -name "*.java")
+          cp -r src/main/resources/* build/classes/
+          (cd build/classes && jar xf ../../lib/json-20240303.jar && rm -rf META-INF)
+          jar --create --file build/input/PrimaryCareClinic.jar \
+              --main-class ui.gui.MainUI -C build/classes .
+
+      - name: Package Windows app image
+        shell: bash
+        run: |
+          jpackage \
+            --input build/input \
+            --main-jar PrimaryCareClinic.jar \
+            --main-class ui.gui.MainUI \
+            --name "PrimaryCareClinic" \
+            --app-version "$APP_VERSION" \
+            --type app-image \
+            --dest build/dist
+          cd build/dist && 7z a -tzip "PrimaryCareClinic-windows.zip" "PrimaryCareClinic"
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: PrimaryCareClinic-windows
+          path: build/dist/*.zip
+
+      - name: Attach to GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: build/dist/*.zip

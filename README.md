@@ -11,6 +11,10 @@
   <img src="docs/screenshots/logo.png" alt="logo" width="500"/>
 </p>
 
+<p align="center">
+  <a href="https://github.com/steph-xue/primary-care-clinic/releases/latest/download/PrimaryCareClinic-windows.zip">Download Application (Windows)</a>
+</p>
+
 <br>
 
 ## Table of Contents
@@ -36,7 +40,7 @@ Through my experiences working in healthcare across community pharmacy, hospital
 
 ## Overview
 
-This project is an electronic health record desktop application designed to streamline patient management for clinicians working in a primary care clinic setting. It is intended for use by physicians, clinical pharmacists, nurses, and other medical professionals to support accurate record keeping and improve patient care. It allows clinicians to manage a sorted list of registered patients, add new patient profiles, update existing information, and remove patients from the system. Each patient record tracks demographic and clinical information, including name, date of birth, age, personal health number, allergies, medications, and medical conditions, alongside a full history of clinical notes documenting past visits. The application is built entirely in Java, with a graphical interface built using Java Swing and a parallel command-line interface, both sharing the same underlying model and persistence logic so behavior stays consistent regardless of how the application is accessed. JSON handles serialization, allowing clinic data to be saved to and loaded from files between sessions, and JUnit Jupiter is used for unit testing across the model and persistence layers.
+This project is an electronic health record desktop application designed to streamline patient management for clinicians working in a primary care clinic setting. It is intended for use by physicians, clinical pharmacists, nurses, and other medical professionals to support accurate record keeping and improve patient care. It allows clinicians to manage a sorted list of registered patients, add new patient profiles, update existing information, and remove patients from the system. Each patient record tracks demographic and clinical information, including name, date of birth, age, personal health number, allergies, medications, and medical conditions, alongside a full history of clinical notes documenting past visits. The application is built entirely in Java, with a graphical interface built using Java Swing and a parallel command-line interface, both sharing the same underlying model and persistence logic so behavior stays consistent regardless of how the application is accessed. JSON handles serialization, allowing clinic data to be saved to and loaded from files between sessions, and JUnit Jupiter is used for unit testing across the model and persistence layers. GitHub Actions automatically builds and publishes a downloadable Windows installer.
 
 <br>
 
@@ -190,6 +194,7 @@ Upon quitting the application, users are given the option to save their clinic d
 | Backend | Java (core application logic) |
 | Storage | JSON (local file storage) |
 | Testing | JUnit Jupiter (unit testing framework) |
+| CI/CD | GitHub Actions (automated build of a downloadable Windows installer) |
 
 > **Note:** Java Swing powers the graphical user interface, but the application can also be run through a command-line interface built in Java, both sharing the same underlying model and persistence logic.
 
@@ -305,7 +310,11 @@ There are some things that would be refactored to improve the design of this pro
 
 ## Getting Started
 
-Follow the steps below to build and run the application from source.
+Download the installer below for Windows, built via [GitHub Actions](https://github.com/steph-xue/primary-care-clinic/actions), or follow the instructions under the download link to build and run the application from source instead, which works on macOS, Windows, and Linux.
+
+[![Download for Windows](https://img.shields.io/badge/Download-Windows-blue?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/steph-xue/primary-care-clinic/releases/latest/download/PrimaryCareClinic-windows.zip) 
+
+> **Note:** Neither macOS nor Linux installers are available. macOS requires a paid Apple Developer Program membership for code signing and notarization, and the Windows installer is a native executable that won't run on other operating systems. Mac and Linux users can still run the application by building from source below.
 
 <br>
 

@@ -310,11 +310,9 @@ There are some things that would be refactored to improve the design of this pro
 
  Download an installer via the links below or follow the instructions below the download links to build and run the application from source.
 
-**macOS:** [⬇ Download PrimaryCareClinic.dmg](https://github.com/steph-xue/PrimaryCareClinic/releases/latest/download/PrimaryCareClinic-mac.dmg)
-<br>
-**Windows:** [⬇ Download PrimaryCareClinic.zip](https://github.com/steph-xue/PrimaryCareClinic/releases/latest/download/PrimaryCareClinic-windows.zip) 
+[![Download for macOS](https://img.shields.io/badge/Download-macOS-blue?style=for-the-badge&logo=apple&logoColor=white)](https://github.com/steph-xue/primary-care-clinic/releases/latest/download/PrimaryCareClinic-mac.dmg) &nbsp;&nbsp; [![Download for Windows](https://img.shields.io/badge/Download-Windows-blue?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/steph-xue/primary-care-clinic/releases/latest/download/PrimaryCareClinic-windows.zip)
 
-> **Note:** All versions are built automatically via GitHub Actions and available on the [Releases page](https://github.com/steph-xue/PrimaryCareClinic/releases).
+> **Note:** All versions are built automatically via GitHub Actions and available on the [Releases page](https://github.com/steph-xue/primary-care-clinic/releases).
 
 <br>
 

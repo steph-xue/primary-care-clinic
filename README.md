@@ -36,9 +36,7 @@ Through my experiences working in healthcare across community pharmacy, hospital
 
 ## Overview
 
-This project is an electronic health record desktop application designed to streamline and enhance patient management for clinicians working in primary care clinics. It is intended for use by physicians, clinical pharmacists, nurses, and other medical professionals to support accurate record keeping and improve patient care. It allows clinicians to manage an alphabetically sorted list of registered patients, add new patient profiles, update existing information, and remove patients from the system. Each patient record tracks demographic and clinical information, including name, date of birth, age, personal health number, allergies, medications, and medical conditions, alongside a full history of clinical notes documenting past visits.
-
-The application is built entirely in Java, with a graphical interface built using Java Swing and a parallel command-line interface, both sharing the same underlying model and persistence logic so behavior stays consistent regardless of how the application is accessed. JSON handles serialization, allowing clinic data to be saved to and loaded from files between sessions, and JUnit Jupiter is used for unit testing across the model and persistence layers. GitHub Actions automatically builds and publishes downloadable macOS and Windows installers.
+This project is an electronic health record desktop application designed to streamline and enhance patient management for clinicians working in primary care clinics. It is intended for use by physicians, clinical pharmacists, nurses, and other medical professionals to support accurate record keeping and improve patient care. It allows clinicians to manage an alphabetically sorted list of registered patients, add new patient profiles, update existing information, and remove patients from the system. Each patient record tracks demographic and clinical information, including name, date of birth, age, personal health number, allergies, medications, and medical conditions, alongside a full history of clinical notes documenting past visits. The application is built entirely in Java, with a graphical interface built using Java Swing and a parallel command-line interface, both sharing the same underlying model and persistence logic so behavior stays consistent regardless of how the application is accessed. JSON handles serialization, allowing clinic data to be saved to and loaded from files between sessions, and JUnit Jupiter is used for unit testing across the model and persistence layers.
 
 <br>
 
@@ -192,7 +190,6 @@ Upon quitting the application, users are given the option to save their clinic d
 | Backend | Java (core application logic) |
 | Storage | JSON (local file storage) |
 | Testing | JUnit Jupiter (unit testing framework) |
-| CI/CD | GitHub Actions (automated builds of downloadable macOS/Windows installers) |
 
 > **Note:** Java Swing powers the graphical user interface, but the application can also be run through a command-line interface built in Java, both sharing the same underlying model and persistence logic.
 
@@ -238,7 +235,7 @@ Writable is an interface implemented by model classes such as Clinic, Patient, a
 
 To allow users to save and reload their clinic data between sessions, the application implements data persistence using custom JSON-based file readers and writers, letting users choose between starting a new session or loading a previously saved clinic, with error handling in place for missing files to improve reliability.
 
-Clinic data is stored at a fixed location in the user's home directory (`~/.primarycareclinic/clinic.json`) rather than relative to wherever the application happens to be launched from, so saving and loading behave consistently whether the app is run from source or as a packaged installer.
+Clinic data is stored at a fixed location in the user's home directory (`~/.primarycareclinic/clinic.json`) rather than relative to wherever the application happens to be launched from, so saving and loading behave consistently no matter how the application is run.
 
 ### Writing Data
 `JsonWriter.java` is responsible for converting the current state of the Clinic object into a well-structured JSON file, including all patients and their associated clinical notes, allowing for easy storage, backup, and transferability of clinic data.
@@ -308,11 +305,7 @@ There are some things that would be refactored to improve the design of this pro
 
 ## Getting Started
 
- Download an installer via the links below or follow the instructions below the download links to build and run the application from source.
-
-[![Download for macOS](https://img.shields.io/badge/Download-macOS-blue?style=for-the-badge&logo=apple&logoColor=white)](https://github.com/steph-xue/primary-care-clinic/releases/latest/download/PrimaryCareClinic-mac.dmg) &nbsp;&nbsp; [![Download for Windows](https://img.shields.io/badge/Download-Windows-blue?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/steph-xue/primary-care-clinic/releases/latest/download/PrimaryCareClinic-windows.zip)
-
-> **Note:** All versions are built automatically via GitHub Actions and available on the [Releases page](https://github.com/steph-xue/primary-care-clinic/releases).
+Follow the steps below to build and run the application from source.
 
 <br>
 

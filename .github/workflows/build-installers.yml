@@ -48,7 +48,7 @@ jobs:
           jar --create --file build/input/PrimaryCareClinic.jar \
               --main-class ui.gui.MainUI -C build/classes .
 
-      - name: Package macOS .dmg
+      - name: Package and sign macOS app
         if: matrix.platform == 'mac'
         shell: bash
         run: |
@@ -58,9 +58,14 @@ jobs:
             --main-class ui.gui.MainUI \
             --name "PrimaryCareClinic" \
             --app-version "$APP_VERSION" \
-            --type dmg \
+            --type app-image \
             --dest build/dist
-          mv "build/dist/PrimaryCareClinic-$APP_VERSION.dmg" "build/dist/PrimaryCareClinic-mac.dmg"
+
+          codesign --force --deep -s - "build/dist/PrimaryCareClinic.app"
+
+          hdiutil create -volname "PrimaryCareClinic" \
+            -srcfolder "build/dist/PrimaryCareClinic.app" \
+            -ov -format UDZO "build/dist/PrimaryCareClinic-mac.dmg"
 
       - name: Package Windows app image
         if: matrix.platform == 'windows'

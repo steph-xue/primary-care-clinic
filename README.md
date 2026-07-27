@@ -43,7 +43,7 @@ This project is an electronic health record desktop application designed to stre
 ## Features
 
 ### Loading Screen
-A loading screen displays with an animated loading indicator during application startup before automatically transitioning to the start screen.
+A loading screen displays with an animated loading indicator during application startup before transitioning to the start screen.
 
 <p align="center"><b>A loading screen is shown at startup</b></p>
 <p align="center"><img src="docs/screenshots/landing.png?raw=true" alt="Loading Screen" width="650"></p>

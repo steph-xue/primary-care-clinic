@@ -303,7 +303,7 @@ Fri Mar 28 01:59:14 PDT 2025 - Clinic name set to Careplus
 
 There are some things that would be refactored to improve the design of this project with more time:
 - Refactoring the PrimaryCareClinicApp class of the UI package, which runs the functionality of the command-line interface, by breaking it into smaller, separate classes that each align with the single responsibility principle. This would ensure each class handles one distinct task (such as user input, command parsing, or output display) to improve cohesion, readability, and maintainability.
-- Abstracting duplicated code in the model package into shared methods. For example, the code for addAllergy, addMedication, and addMedicalCondition could be abstracted into a single method to minimize duplication, improving reusability and making future updates easier since shared logic would only need to be changed in one place.
+- Abstracting duplicated code in the model package into shared methods. For example, the code for addAllergy, addMedication, and addMedicalCondition could be abstracted into a single method to minimize duplication, which would improve reusability and making future updates easier since shared logic would only need to be changed in one place.
 - Refactoring the NavigationBarUI class so that instead of being instantiated separately by multiple GUI screen classes, it is instantiated once for the entire application in the MainUI class. This would centralize control of navigation, prevent redundant instances, and ensure consistent behavior across all UI screens.
 
 <br>

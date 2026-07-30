@@ -19,6 +19,7 @@ public class JsonWriterTest extends JsonTest {
     @TempDir
     File tempDir;
 
+    // Tests that opening a writer for an illegal file path throws an IOException
     @Test
     void testWriterFileDoesNotExist() {
         try {
@@ -31,6 +32,7 @@ public class JsonWriterTest extends JsonTest {
         }
     }
 
+    // Tests that writing and reading back an empty clinic preserves its name and empty patient list
     @Test
     void testWriterEmptyWorkroom() {
         try {
@@ -50,6 +52,7 @@ public class JsonWriterTest extends JsonTest {
         }
     }
 
+    // Tests that writing and reading back a clinic with multiple patients preserves all patient data
     @Test
     void testWriterGeneralClinic() {
         try {
@@ -76,6 +79,7 @@ public class JsonWriterTest extends JsonTest {
         }
     }
 
+    // Builds a sample patient with allergies, medications, medical conditions, and clinical notes
     public Patient makePatient1() {
         Date dateOfBirth1 = new Date(9, 11, 1968);
         Patient patient1 = new Patient("Ashley", "Davis", dateOfBirth1, 56, 920215344);
@@ -101,6 +105,7 @@ public class JsonWriterTest extends JsonTest {
         return patient1;
     }
 
+    // Builds a second sample patient with allergies, medications, medical conditions, and clinical notes
     public Patient makePatient2() {
         Date dateOfBirth2 = new Date(1, 6, 1971);
         Patient patient2 = new Patient("Thomas", "Smith", dateOfBirth2, 54, 905845652);
@@ -125,11 +130,13 @@ public class JsonWriterTest extends JsonTest {
         return patient2;
     }
 
+    // Checks that the clinic's name and number of patients match the expected values
     public void checkClinicInitial(Clinic clinic, List<Patient> patients) {
         assertEquals("My Clinic", clinic.getClinicName());
         assertEquals(2, patients.size());
     }
 
+    // Checks that the first patient's general info, allergies, medications, conditions, and notes match
     public void checkPatient1(List<Patient> patients) {
         checkPatientGeneral1(patients);
         checkPatientAllergies1(patients);
@@ -138,11 +145,13 @@ public class JsonWriterTest extends JsonTest {
         checkClinicalNotes1(patients);
     }
 
+    // Checks that the first patient's demographic fields match the expected values
     public void checkPatientGeneral1(List<Patient> patients) {
         Date dateOfBirth1 = new Date(9, 11, 1968);
         checkPatientGeneral("Ashley", "Davis", dateOfBirth1, 56, 920215344, patients.get(0));
     }
     
+    // Checks that the first patient's allergies match the expected values
     public void checkPatientAllergies1(List<Patient> patients) {
         List<String> allergies1 = new ArrayList<>();
         allergies1.add("amoxicillin");
@@ -150,6 +159,7 @@ public class JsonWriterTest extends JsonTest {
         checkPatientAllergies(allergies1, patients.get(0));
     }
 
+    // Checks that the first patient's medications match the expected values
     public void checkPatientMedications1(List<Patient> patients) {
         List<String> medications1 = new ArrayList<>();
         medications1.add("ramipril");
@@ -158,6 +168,7 @@ public class JsonWriterTest extends JsonTest {
         checkPatientMedications(medications1, patients.get(0));
     }
 
+    // Checks that the first patient's medical conditions match the expected values
     public void checkPatientMedicalConditions1(List<Patient> patients) {
         List<String> medicalConditions1 = new ArrayList<>();
         medicalConditions1.add("hypertension");
@@ -165,6 +176,7 @@ public class JsonWriterTest extends JsonTest {
         checkPatientMedicalConditions(medicalConditions1, patients.get(0));
     }
 
+    // Checks that the first patient's clinical notes and their fields match the expected values
     public void checkClinicalNotes1(List<Patient> patients) {
         Date visitDate1 = new Date(1, 10, 2025);
         ClinicalNote note1 = new ClinicalNote("Constipation", "Patient presenting with severe constipation", 
@@ -183,6 +195,7 @@ public class JsonWriterTest extends JsonTest {
                 "Dr. Kaur", visitDate2, note2);
     }
 
+    // Checks that the second patient's general info, allergies, medications, conditions, and notes match
     public void checkPatient2(List<Patient> patients) {
         checkPatientGeneral2(patients);
         checkPatientAllergies2(patients);
@@ -191,11 +204,13 @@ public class JsonWriterTest extends JsonTest {
         checkClinicalNotes2(patients);
     }
 
+    // Checks that the second patient's demographic fields match the expected values
     public void checkPatientGeneral2(List<Patient> patients) {
         Date dateOfBirth2 = new Date(1, 6, 1971);
         checkPatientGeneral("Thomas", "Smith", dateOfBirth2, 54, 905845652, patients.get(1));
     }
 
+    // Checks that the second patient's allergies match the expected values
     public void checkPatientAllergies2(List<Patient> patients) {
         List<String> allergies2 = new ArrayList<>();
         allergies2.add("tetracycline");
@@ -203,6 +218,7 @@ public class JsonWriterTest extends JsonTest {
         checkPatientAllergies(allergies2, patients.get(1));
     }
 
+    // Checks that the second patient's medications match the expected values
     public void checkPatientMedications2(List<Patient> patients) {
         List<String> medications2 = new ArrayList<>();
         medications2.add("metformin");
@@ -210,6 +226,7 @@ public class JsonWriterTest extends JsonTest {
         checkPatientMedications(medications2, patients.get(1));
     }
 
+    // Checks that the second patient's medical conditions match the expected values
     public void checkPatientMedicalConditions2(List<Patient> patients) {
         List<String> medicalConditions2 = new ArrayList<>();
         medicalConditions2.add("diabetes");
@@ -217,6 +234,7 @@ public class JsonWriterTest extends JsonTest {
         checkPatientMedicalConditions(medicalConditions2, patients.get(1));
     }
 
+    // Checks that the second patient's clinical notes and their fields match the expected values
     public void checkClinicalNotes2(List<Patient> patients) {
         Date visitDate3 = new Date(1, 18, 2025);
         ClinicalNote note3 = new ClinicalNote("Allergic rhinitis", "Patient presenting with nasal congestion",

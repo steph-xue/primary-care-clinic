@@ -14,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class JsonReaderTest extends JsonTest {
 
+    // Tests that reading from a nonexistent file throws an IOException
     @Test
     void testReaderFileDoesNotExist() {
         JsonReader reader = new JsonReader("./src/test/resources/data/noExistingFile.json");
@@ -25,6 +26,7 @@ public class JsonReaderTest extends JsonTest {
         }
     }
 
+    // Tests that reading a clinic with no patients returns the correct name and an empty patient list
     @Test
     void testReaderEmptyClinic() {
         JsonReader reader = new JsonReader("./src/test/resources/data/testReaderEmptyClinic.json");
@@ -37,6 +39,7 @@ public class JsonReaderTest extends JsonTest {
         }
     }
 
+    // Tests that reading a clinic with multiple patients correctly parses all patient data
     @Test
     void testReaderGeneralClinic() {
         JsonReader reader = new JsonReader("./src/test/resources/data/testReaderGeneralClinic.json");
@@ -59,16 +62,19 @@ public class JsonReaderTest extends JsonTest {
         }
     }
 
+    // Checks that the clinic's name and number of patients match the expected values
     public void checkClinicInitial(Clinic clinic, List<Patient> patients) {
         assertEquals("My Clinic", clinic.getClinicName());
         assertEquals(2, patients.size());
     }
 
+    // Checks that the first patient's demographic fields match the expected values
     public void checkPatientGeneral1(List<Patient> patients) {
         Date dateOfBirth1 = new Date(8, 16, 1965);
         checkPatientGeneral("Mya", "Cornell", dateOfBirth1, 59, 925245285, patients.get(0));
     }
     
+    // Checks that the first patient's allergies match the expected values
     public void checkPatientAllergies1(List<Patient> patients) {
         List<String> allergies1 = new ArrayList<>();
         allergies1.add("penicillin");
@@ -76,6 +82,7 @@ public class JsonReaderTest extends JsonTest {
         checkPatientAllergies(allergies1, patients.get(0));
     }
 
+    // Checks that the first patient's medications match the expected values
     public void checkPatientMedications1(List<Patient> patients) {
         List<String> medications1 = new ArrayList<>();
         medications1.add("metformin");
@@ -84,6 +91,7 @@ public class JsonReaderTest extends JsonTest {
         checkPatientMedications(medications1, patients.get(0));
     }
 
+    // Checks that the first patient's medical conditions match the expected values
     public void checkPatientMedicalConditions1(List<Patient> patients) {
         List<String> medicalConditions1 = new ArrayList<>();
         medicalConditions1.add("diabetes");
@@ -91,6 +99,7 @@ public class JsonReaderTest extends JsonTest {
         checkPatientMedicalConditions(medicalConditions1, patients.get(0));
     }
 
+    // Checks that the first patient's clinical notes and their fields match the expected values
     public void checkClinicalNotes1(List<Patient> patients) {
         Date visitDate1 = new Date(1, 16, 2025);
         ClinicalNote note1 = new ClinicalNote("Coughing", "Patient presenting with severe cough", 
@@ -107,11 +116,13 @@ public class JsonReaderTest extends JsonTest {
         checkClinicalNote("Ear infection", "Patient presenting with infected ear", "Dr. Singh", visitDate2, note2);
     }
 
+    // Checks that the second patient's demographic fields match the expected values
     public void checkPatientGeneral2(List<Patient> patients) {
         Date dateOfBirth2 = new Date(11, 8, 1971);
         checkPatientGeneral("Amira", "Garcia", dateOfBirth2, 53, 925645120, patients.get(1));
     }
 
+    // Checks that the second patient's allergies match the expected values
     public void checkPatientAllergies2(List<Patient> patients) {
         List<String> allergies2 = new ArrayList<>();
         allergies2.add("ciprofloxacin");
@@ -119,6 +130,7 @@ public class JsonReaderTest extends JsonTest {
         checkPatientAllergies(allergies2, patients.get(1));
     }
 
+    // Checks that the second patient's medications match the expected values
     public void checkPatientMedications2(List<Patient> patients) {
         List<String> medications2 = new ArrayList<>();
         medications2.add("rosuvastatin");
@@ -126,6 +138,7 @@ public class JsonReaderTest extends JsonTest {
         checkPatientMedications(medications2, patients.get(1));
     }
 
+    // Checks that the second patient's medical conditions match the expected values
     public void checkPatientMedicalConditions2(List<Patient> patients) {
         List<String> medicalConditions2 = new ArrayList<>();
         medicalConditions2.add("hyperlipidemia");
@@ -133,6 +146,7 @@ public class JsonReaderTest extends JsonTest {
         checkPatientMedicalConditions(medicalConditions2, patients.get(1));
     }
 
+    // Checks that the second patient's clinical notes and their fields match the expected values
     public void checkClinicalNotes2(List<Patient> patients) {
         Date visitDate3 = new Date(1, 18, 2025);
         ClinicalNote note3 = new ClinicalNote("Eye infection", "Patient has eye infection", 

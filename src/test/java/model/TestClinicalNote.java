@@ -10,6 +10,7 @@ public class TestClinicalNote {
     private Date date1;
     private ClinicalNote clinicalNote1;
 
+    // Tests fixture setup with a sample date and clinical note
     @BeforeEach
     public void runBefore() {
         date1 = new Date(1, 22, 2025);
@@ -17,6 +18,7 @@ public class TestClinicalNote {
 
     }
 
+    // Tests that the constructor sets title, body, provider, and date correctly
     @Test
     public void constructorTest() {
         assertEquals("Eye infection", clinicalNote1.getClinicalNoteTitle());
@@ -25,6 +27,7 @@ public class TestClinicalNote {
         assertEquals(date1, clinicalNote1.getClinicalNoteDate());
     }
 
+    // Tests that printClinicaNote formats the title, body, provider, and date correctly
     @Test
     public void printClinicalNoteTest() {
         assertEquals(
@@ -35,6 +38,7 @@ public class TestClinicalNote {
                 clinicalNote1.printClinicaNote());
     }
 
+    // Tests that setClinicalNoteTitle updates the note's title
     @Test
     public void setClinicalNoteTitleTest() {
         assertEquals("Eye infection", clinicalNote1.getClinicalNoteTitle());
@@ -42,6 +46,7 @@ public class TestClinicalNote {
         assertEquals("Asthma exacerbation", clinicalNote1.getClinicalNoteTitle());
     }
 
+    // Tests that setClinicalNoteBody updates the note's body
     @Test
     public void setClinicalNoteBodyTest() {
         assertEquals("Detailed notes 1.", clinicalNote1.getClinicalNoteBody());
@@ -49,6 +54,7 @@ public class TestClinicalNote {
         assertEquals("Detailed notes 2.", clinicalNote1.getClinicalNoteBody());
     }
 
+    // Tests that setClinicalNoteProvider updates the note's provider
     @Test
     public void setClinicalNoteProviderTest() {
         assertEquals("Dr. O. Harrison", clinicalNote1.getClinicalNoteProvider());

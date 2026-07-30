@@ -26,13 +26,13 @@ import java.io.FileNotFoundException;
 // https://codehs.com/tutorial/david/java-swing-mouse-events
 // https://www.tutorialspoint.com/swing/swing_mouseadapter.htm
 // Java GUI: Full Course https://www.youtube.com/watch?v=Kmgo00avvEw
-// Code referenced from SpaceInvaders, RobustTrafficLights, AlarmSystem, DrawingPlayer, SmartHome
+// Code referenced from SpaceInvaders, RobustTrafficLights, AlarmSystem, DrawingPlayer, SmartHome.
 
 // Image References
 // JOptionPane Health Logo /images/health.jpg retrieved from https://www.freepik.com/premium-vector/
 //basic-healthcare-icon-vector-image-can-be-used-home-services_157661598.html
 
-// MainUI displays the main frame and primary contents of the primary care clinic application
+// MainUI displays the main frame and primary contents of the primary care clinic application.
 public class MainUI extends JFrame implements WindowListener {
     private static final String JSON_STORE = System.getProperty("user.home") + File.separator
             + ".primarycareclinic" + File.separator + "clinic.json";
@@ -51,7 +51,7 @@ public class MainUI extends JFrame implements WindowListener {
     private ViewPatientProfileUI viewPatientProfileScreen;
     private AddClinicalNoteUI addClinicaNoteScreen;
 
-    // EFFECTS: Constructs the MainUI JFrame for the main application
+    // EFFECTS: Constructs the MainUI JFrame for the main application.
     public MainUI() {
         init();
         setupLayout();
@@ -59,8 +59,8 @@ public class MainUI extends JFrame implements WindowListener {
     }
 
     // MODIFIES: this
-    // EFFECTS: Initializes the primary care clinic application UI with specific settings;
-    // enable data persistance with JSON reader and writer
+    // EFFECTS: Initializes the primary care clinic application UI with specific settings.
+    // Enable data persistance with JSON reader and writer.
     public void init() {
         setTitle("Primary Care Clinic Application");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -82,7 +82,7 @@ public class MainUI extends JFrame implements WindowListener {
 
     // MODIFIES: this
     // EFFECTS: Sets up the card layout, main panel, loading screen, start screen, view patients screen, add 
-    // patient screen, and the save/quit screen; all screens are added to the main panel in card layout
+    // patient screen, and the save/quit screen. All screens are added to the main panel in card layout.
     public void setupLayout() {
         cardLayout = new CardLayout();
         mainPanel = new JPanel(cardLayout);
@@ -101,12 +101,12 @@ public class MainUI extends JFrame implements WindowListener {
         setVisible(true);
     }
     
-    // EFFECTS: Starts the application and shows the loading screen
+    // EFFECTS: Starts the application and shows the loading screen.
     public void startApp() {
         showLoadingScreen();
     }
 
-    // EFFECTS: Displays LoadingScreenUI for 10 seconds then switches to display the start screen
+    // EFFECTS: Displays LoadingScreenUI for 10 seconds then switches to display the start screen.
     public void showLoadingScreen() {
         cardLayout.show(mainPanel, "loading");
 
@@ -116,14 +116,14 @@ public class MainUI extends JFrame implements WindowListener {
     }
 
     // MODIFIES: this
-    // EFFECTS: Displays StartScreenUI so user can load from file or create a new clinic
+    // EFFECTS: Displays StartScreenUI so user can load from file or create a new clinic.
     public void showStartScreen() {
         cardLayout.show(mainPanel, "start");
     }
 
     // MODIFIES: this
-    // EFFECTS: Loads previously saved clinic data to the application; prints out a success message if successful
-    // or error message if unable to read from file; loads the view all patients screen
+    // EFFECTS: Loads previously saved clinic data to the application. Prints out a success message if successful
+    // or error message if unable to read from file. Loads the view all patients screen.
     public void loadClinicData() {
         try {
             Clinic loadedClinic = jsonReader.read();
@@ -147,8 +147,8 @@ public class MainUI extends JFrame implements WindowListener {
     }
 
     // MODIFIES: this
-    // EFFECTS: Create a new clinic and allows user to input a clinic name; prints out a success message if clinic is
-    // successfully named or prints an error message if clinic name is empty; loads the view all patients screen 
+    // EFFECTS: Creates a new clinic and allows user to input a clinic name. Prints out a success message if clinic is
+    // successfully named or prints an error message if clinic name is empty. Loads the view all patients screen. 
     public void createNewClinic() {
         String clinicName = (String) JOptionPane.showInputDialog(
                 this, 
@@ -174,8 +174,8 @@ public class MainUI extends JFrame implements WindowListener {
     }
 
     // MODIFIES: this
-    // EFFECTS: Allows the user to rename the clinic; prints out a success message if clinic is successfully 
-    // named or prints an error message if clinic name is empty; loads the view all patients screen 
+    // EFFECTS: Allows the user to rename the clinic. Prints out a success message if clinic is successfully 
+    // named or prints an error message if clinic name is empty. Loads the view all patients screen. 
     public void renameClinic() {
         String clinicName = (String) JOptionPane.showInputDialog(
                 this, 
@@ -200,13 +200,13 @@ public class MainUI extends JFrame implements WindowListener {
     }
 
     // MODIFIES: this
-    // EFFECTS: Displays SaveQuitUI which allows the user to save and quit, or quit the application without saving
+    // EFFECTS: Displays SaveQuitUI which allows the user to save and quit, or quit the application without saving.
     public void showSaveQuitScreen() {
         cardLayout.show(mainPanel, "save and quit");
     }
 
     // MODIFIES: this
-    // EFFECTS: Saves the clinic data to file and quits the application
+    // EFFECTS: Saves the clinic data to file and quits the application.
     public void saveQuit() {
         try {
             jsonWriter.open();
@@ -228,32 +228,32 @@ public class MainUI extends JFrame implements WindowListener {
 
     }
 
-    // EFFECTS: Quits the application without saving
+    // EFFECTS: Quits the application without saving.
     public void quit() {
         dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
         System.exit(0);
     }
 
     // MODIFIES: this
-    // EFFECTS: Displays ViewPatientsUI which allows the user to view details of all patients in the clinic
+    // EFFECTS: Displays ViewPatientsUI which allows the user to view details of all patients in the clinic.
     public void showViewPatientsScreen() {
         getViewPatientsScreen().loadPatients();
         cardLayout.show(mainPanel, "patients");
     }
 
-    // EFFECTS: Returns the ViewPatientsUI screen for reloading data in the patient table 
+    // EFFECTS: Returns the ViewPatientsUI screen for reloading data in the patient table. 
     public ViewPatientsUI getViewPatientsScreen() {
         return viewPatientsScreen;
     }
 
     // MODIFIES: this
-    // EFFECTS: Displays AddPatientUI which allows the user to input information in a form to add a new patient
+    // EFFECTS: Displays AddPatientUI which allows the user to input information in a form to add a new patient.
     public void showAddPatientScreen() {
         cardLayout.show(mainPanel, "add patient");
     }
 
     // MODIFIES: this
-    // EFFECTS: Displays ViewPatientProfileUI which allows the user to view a specific patient profile
+    // EFFECTS: Displays ViewPatientProfileUI which allows the user to view a specific patient profile.
     public void viewPatientProfileScreen(Patient p) {
         viewPatientProfileScreen = new ViewPatientProfileUI(this, clinic, p);
         mainPanel.add(viewPatientProfileScreen, "patient");
@@ -262,20 +262,20 @@ public class MainUI extends JFrame implements WindowListener {
 
     // MODIFIES: this
     // EFFECTS: Displays AddClinicalNoteUI which allows the user to create and add a new clinical note
-    // in a form for a specific patient
+    // in a form for a specific patient.
     public void addClinicalNote(Patient p) {
         addClinicaNoteScreen = new AddClinicalNoteUI(this, clinic, p);
         mainPanel.add(addClinicaNoteScreen, "note");
         cardLayout.show(mainPanel, "note");
     }
     
-    // EFFECTS: Runs the main application
+    // EFFECTS: Runs the main application.
     public static void main(String[] args) {
         System.setProperty("apple.awt.application.name", "Primary Care Clinic Application");
         new MainUI();
     }
 
-    // EFFECTS: Prints the event log upon closing the window
+    // EFFECTS: Prints the event log upon closing the window.
     @Override
     public void windowClosing(WindowEvent e) {
         for (Event event : EventLog.getInstance()) {

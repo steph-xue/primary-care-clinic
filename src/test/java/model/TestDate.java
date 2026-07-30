@@ -10,12 +10,14 @@ public class TestDate {
     private Date date1;
     private Date date2;
 
+    // Tests fixture setup with two sample dates, date1 and date2
     @BeforeEach
     public void runBefore() {
         date1 = new Date(8, 28, 1986);
         date2 = new Date(10, 4, 2022);
     }
 
+    // Tests that the constructor sets month, day, and year correctly
     @Test
     public void constructorTest() {
         assertEquals(8, date1.getMonth());
@@ -27,12 +29,14 @@ public class TestDate {
         assertEquals(2022, date2.getYear());
     }
 
+    // Tests that printDate formats the date as MM/DD/YYYY
     @Test
     public void printDateTest() {
         assertEquals("08/28/1986", date1.printDate());
         assertEquals("10/04/2022", date2.printDate());
     }
 
+    // Tests that addPrefix pads single-digit numbers with a leading zero
     @Test
     public void addPrefixTest() {
         assertEquals("00", date1.addPrefix(0));
@@ -51,6 +55,7 @@ public class TestDate {
         assertEquals("-1", date1.addPrefix(-1));
     }
 
+    // Tests that setMonth updates the month value
     @Test
     public void setMonthTest() {
         assertEquals(8, date1.getMonth());
@@ -58,6 +63,7 @@ public class TestDate {
         assertEquals(12, date1.getMonth());
     }
 
+    // Tests that setDay updates the day value
     @Test
     public void setDayTest() {
         assertEquals(28, date1.getDay());
@@ -65,6 +71,7 @@ public class TestDate {
         assertEquals(7, date1.getDay());
     }
 
+    // Tests that setYear updates the year value
     @Test
     public void setYearTest() {
         assertEquals(1986, date1.getYear());

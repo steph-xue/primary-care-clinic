@@ -20,6 +20,7 @@ public class TestClinic {
     private Patient patient3;
     private Clinic clinic;
     
+    // Tests fixture setup with three sample patients and an empty clinic
     @BeforeEach
     public void runBefore() {
         dateOfBirth1 = new Date(4, 17, 1976);
@@ -31,12 +32,14 @@ public class TestClinic {
         clinic = new Clinic("Medicare Clinic");
     }
 
+    // Tests that the constructor sets the clinic name and starts with no patients
     @Test
     public void constructorTest() {
         assertEquals("Medicare Clinic", clinic.getClinicName());
         assertTrue(clinic.getPatients().isEmpty());
     }
 
+    // Tests that adding a patient adds it to the clinic's patient list
     @Test
     public void addPatientTest() {
         assertEquals(0, clinic.getPatients().size());
@@ -45,6 +48,7 @@ public class TestClinic {
         assertEquals(patient1, clinic.getPatients().get(0));
     }
 
+    // Tests that adding multiple patients adds them all in order
     @Test
     public void addPatientMultipleTest() {
         assertEquals(0, clinic.getPatients().size());
@@ -55,6 +59,7 @@ public class TestClinic {
         assertEquals(patient3, clinic.getPatients().get(1));
     }
 
+    // Tests that added patients are sorted alphabetically by last name
     @Test
     public void addPatientMultipleSortingLastNameTest() {
         assertEquals(0, clinic.getPatients().size());
@@ -67,6 +72,7 @@ public class TestClinic {
         assertEquals(patient1, clinic.getPatients().get(2));
     }
 
+    // Tests that adding a duplicate patient returns false and does not add it again
     @Test
     public void addPatientDuplicateTest() {
         assertEquals(0, clinic.getPatients().size());
@@ -76,6 +82,7 @@ public class TestClinic {
         assertEquals(patient1, clinic.getPatients().get(0));
     }
 
+    // Tests that removing a patient removes it from the clinic's patient list
     @Test
     public void removePatientTest() {
         assertTrue(clinic.addPatient(patient1));
@@ -85,6 +92,7 @@ public class TestClinic {
         assertEquals(0, clinic.getPatients().size()); 
     }
 
+    // Tests that removing multiple patients one at a time updates the list correctly
     @Test
     public void removePatientMultipleTest() {
         assertTrue(clinic.addPatient(patient2));
@@ -99,6 +107,7 @@ public class TestClinic {
         assertEquals(0, clinic.getPatients().size());
     }
 
+    // Tests that removing a patient not in the clinic returns false and leaves the list unchanged
     @Test
     public void removePatientNotPresentTest() {
         assertTrue(clinic.addPatient(patient2));
@@ -109,6 +118,7 @@ public class TestClinic {
         assertEquals(patient3, clinic.getPatients().get(1));
     }
 
+    // Tests that printPatientRecords reports no records for an empty clinic
     @Test
     public void printPatientRecordsNoneTest() {
         assertEquals(
@@ -118,6 +128,7 @@ public class TestClinic {
                 clinic.printPatientRecords());
     }
 
+    // Tests that printPatientRecords formats a single patient's record correctly
     @Test
     public void printPatientRecordOneTest() {
         assertTrue(clinic.addPatient(patient2));
@@ -131,6 +142,7 @@ public class TestClinic {
                 clinic.printPatientRecords());
     }
 
+    // Tests that printPatientRecords formats multiple patient records correctly
     @Test
     public void printPatientRecordMultipleTest() {
         assertTrue(clinic.addPatient(patient2));
@@ -150,6 +162,7 @@ public class TestClinic {
                 clinic.printPatientRecords());
     }
 
+    // Tests that printPatientRecords lists patients sorted by last name
     @Test
     public void printPatientRecordMultipleSortedTest() {
         assertTrue(clinic.addPatient(patient1));
@@ -169,6 +182,7 @@ public class TestClinic {
                 clinic.printPatientRecords());
     }
 
+    // Tests that setClinicName updates the clinic's name
     @Test
     public void setClinicNameTest() {
         assertEquals("Medicare Clinic", clinic.getClinicName());
@@ -176,6 +190,7 @@ public class TestClinic {
         assertEquals("PlusCare Clinic", clinic.getClinicName());
     }
 
+    // Tests that setPatients replaces the clinic's patient list
     @Test
     public void setPatientsTest() {
         List<Patient> patients = new ArrayList<>();

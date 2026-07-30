@@ -19,6 +19,7 @@ public class TestPatient {
     private ClinicalNote clinicalNote2;
     private ClinicalNote clinicalNote3;
     
+    // Tests fixture setup with a sample patient, dates, and clinical notes
     @BeforeEach
     public void runBefore() {
         dateOfBirth1 = new Date(7, 27, 1973);
@@ -32,6 +33,7 @@ public class TestPatient {
         clinicalNote3 = new ClinicalNote("Ear infection", "Detailed notes 3.", "Dr. S. Wong", date3);
     }
 
+    // Tests that the constructor sets patient fields and starts with empty lists
     @Test
     public void constructorTest() {
         assertEquals("Paul", patient1.getFirstName());
@@ -46,6 +48,7 @@ public class TestPatient {
         assertTrue(patient1.getClinicalNotes().isEmpty());
     }
 
+    // Tests that adding an allergy adds it to the patient's allergy list
     @Test
     public void addAllergyTest() {
         assertEquals(0, patient1.getAllergies().size());
@@ -54,6 +57,7 @@ public class TestPatient {
         assertEquals("penicillin", patient1.getAllergies().get(0));
     }
 
+    // Tests that adding multiple allergies adds them all in order
     @Test
     public void addAllergyMultipleTest() {
         assertEquals(0, patient1.getAllergies().size());
@@ -64,6 +68,7 @@ public class TestPatient {
         assertEquals("ciprofloxacin", patient1.getAllergies().get(1));
     }
 
+    // Tests that adding a duplicate allergy returns false and does not add it again
     @Test
     public void addAllergyDuplicateTest() {
         assertEquals(0, patient1.getAllergies().size());
@@ -73,6 +78,7 @@ public class TestPatient {
         assertEquals("amoxicillin", patient1.getAllergies().get(0));
     }
 
+    // Tests that removing an allergy removes it from the patient's allergy list
     @Test
     public void removeAllergyTest() {
         assertTrue(patient1.addAllergy("ibuprofen"));
@@ -82,6 +88,7 @@ public class TestPatient {
         assertEquals(0, patient1.getAllergies().size()); 
     }
 
+    // Tests that removing multiple allergies one at a time updates the list correctly
     @Test
     public void removeAllergyMultipleTest() {
         assertTrue(patient1.addAllergy("naproxen"));
@@ -96,6 +103,7 @@ public class TestPatient {
         assertEquals(0, patient1.getAllergies().size());
     }
 
+    // Tests that removing an allergy not present returns false and leaves the list unchanged
     @Test
     public void removeAllergyNotPresentTest() {
         assertTrue(patient1.addAllergy("codeine"));
@@ -106,6 +114,7 @@ public class TestPatient {
         assertEquals("penicillin", patient1.getAllergies().get(1));
     }
 
+    // Tests that editing an allergy replaces it with the new value
     @Test
     public void editAllergyTest() {
         assertTrue(patient1.addAllergy("penicillin"));
@@ -116,6 +125,7 @@ public class TestPatient {
         assertEquals("ampicillin", patient1.getAllergies().get(0));
     }
 
+    // Tests that editing multiple allergies updates each entry correctly
     @Test
     public void editAllergyMultipleTest() {
         assertTrue(patient1.addAllergy("amoxicillin"));
@@ -130,6 +140,7 @@ public class TestPatient {
         assertEquals("nitrofurantoin", patient1.getAllergies().get(1));
     }
 
+    // Tests that editing an allergy not present returns false and leaves the list unchanged
     @Test
     public void editAllergyNotPresentTest() {
         assertTrue(patient1.addAllergy("azithromycin"));
@@ -140,6 +151,7 @@ public class TestPatient {
         assertEquals("azithromycin", patient1.getAllergies().get(0));
     }
 
+    // Tests that adding a medication adds it to the patient's medication list
     @Test
     public void addMedicationTest() {
         assertEquals(0, patient1.getMedications().size());
@@ -148,6 +160,7 @@ public class TestPatient {
         assertEquals("metformin", patient1.getMedications().get(0));
     }
 
+    // Tests that adding multiple medications adds them all in order
     @Test
     public void addMedicationMultipleTest() {
         assertEquals(0, patient1.getMedications().size());
@@ -158,6 +171,7 @@ public class TestPatient {
         assertEquals("metformin", patient1.getMedications().get(1));
     }
 
+    // Tests that adding a duplicate medication returns false and does not add it again
     @Test
     public void addMedicatioDuplicateTest() {
         assertEquals(0, patient1.getMedications().size());
@@ -167,6 +181,7 @@ public class TestPatient {
         assertEquals("rosuvastatin", patient1.getMedications().get(0));
     }
 
+    // Tests that removing a medication removes it from the patient's medication list
     @Test
     public void removeMedicationTest() {
         assertTrue(patient1.addMedication("bisoprolol"));
@@ -176,6 +191,7 @@ public class TestPatient {
         assertEquals(0, patient1.getMedications().size()); 
     }
 
+    // Tests that removing multiple medications one at a time updates the list correctly
     @Test
     public void removeMedicationMultipleTest() {
         assertTrue(patient1.addMedication("metformin"));
@@ -190,6 +206,7 @@ public class TestPatient {
         assertEquals(0, patient1.getMedications().size());
     }
 
+    // Tests that removing a medication not present returns false and leaves the list unchanged
     @Test
     public void removeMedicationNotPresentTest() {
         assertTrue(patient1.addMedication("dapagliflozin"));
@@ -200,6 +217,7 @@ public class TestPatient {
         assertEquals("metformin", patient1.getMedications().get(1));
     }
 
+    // Tests that editing a medication replaces it with the new value
     @Test
     public void editMedicationTest() {
         assertTrue(patient1.addMedication("atorvastatin"));
@@ -210,6 +228,7 @@ public class TestPatient {
         assertEquals("rosuvastatin", patient1.getMedications().get(0));
     }
 
+    // Tests that editing multiple medications updates each entry correctly
     @Test
     public void editMedicationMultipleTest() {
         assertTrue(patient1.addMedication("metformin"));
@@ -224,6 +243,7 @@ public class TestPatient {
         assertEquals("felodipine", patient1.getMedications().get(1));
     }
 
+    // Tests that editing a medication not present returns false and leaves the list unchanged
     @Test
     public void editMedicationNotPresentTest() {
         assertTrue(patient1.addMedication("bisoprolol"));
@@ -234,6 +254,7 @@ public class TestPatient {
         assertEquals("bisoprolol", patient1.getMedications().get(0));
     }
 
+    // Tests that adding a medical condition adds it to the patient's condition list
     @Test
     public void addMedicalConditionTest() {
         assertEquals(0, patient1.getMedicalConditions().size());
@@ -242,6 +263,7 @@ public class TestPatient {
         assertEquals("dyslipidemia", patient1.getMedicalConditions().get(0));
     }
 
+    // Tests that adding multiple medical conditions adds them all in order
     @Test
     public void addMedicalConditionMultipleTest() {
         assertEquals(0, patient1.getMedicalConditions().size());
@@ -252,6 +274,7 @@ public class TestPatient {
         assertEquals("hypertension", patient1.getMedicalConditions().get(1));
     }
 
+    // Tests that adding a duplicate medical condition returns false and does not add it again
     @Test
     public void addMedicalConditionDuplicateTest() {
         assertEquals(0, patient1.getMedicalConditions().size());
@@ -261,6 +284,7 @@ public class TestPatient {
         assertEquals("epilepsy", patient1.getMedicalConditions().get(0));
     }
 
+    // Tests that removing a medical condition removes it from the patient's condition list
     @Test
     public void removeMedicalConditionTest() {
         assertTrue(patient1.addMedicalCondition("impetigo"));
@@ -270,6 +294,7 @@ public class TestPatient {
         assertEquals(0, patient1.getMedicalConditions().size()); 
     }
 
+    // Tests that removing multiple medical conditions one at a time updates the list correctly
     @Test
     public void removeMedicalConditionMultipleTest() {
         assertTrue(patient1.addMedicalCondition("diabetes mellitus"));
@@ -284,6 +309,7 @@ public class TestPatient {
         assertEquals(0, patient1.getMedicalConditions().size());
     }
 
+    // Tests that removing a medical condition not present returns false and leaves the list unchanged
     @Test
     public void removeMedicalConditionNotPresentTest() {
         assertTrue(patient1.addMedicalCondition("hypertension"));
@@ -294,6 +320,7 @@ public class TestPatient {
         assertEquals("rosacea", patient1.getMedicalConditions().get(1));
     }
 
+    // Tests that editing a medical condition replaces it with the new value
     @Test
     public void editMedicalConditionTest() {
         assertTrue(patient1.addMedicalCondition("osteoarthritis"));
@@ -304,6 +331,7 @@ public class TestPatient {
         assertEquals("rheumatoid arthritis", patient1.getMedicalConditions().get(0));
     }
 
+    // Tests that editing multiple medical conditions updates each entry correctly
     @Test
     public void editMedicalConditionMultipleTest() {
         assertTrue(patient1.addMedicalCondition("hypertension"));
@@ -318,6 +346,7 @@ public class TestPatient {
         assertEquals("dermatitis", patient1.getMedicalConditions().get(1));
     }
 
+    // Tests that editing a medical condition not present returns false and leaves the list unchanged
     @Test
     public void editMedicalConditionNotPresentTest() {
         assertTrue(patient1.addMedicalCondition("epilepsy"));
@@ -328,6 +357,7 @@ public class TestPatient {
         assertEquals("epilepsy", patient1.getMedicalConditions().get(0));
     }
 
+    // Tests that adding a clinical note adds it to the patient's note list
     @Test
     public void addClinicalNoteTest() {
         assertEquals(0, patient1.getClinicalNotes().size());
@@ -336,6 +366,7 @@ public class TestPatient {
         assertEquals(clinicalNote1, patient1.getClinicalNotes().get(0));
     }
 
+    // Tests that adding multiple clinical notes adds them all in order
     @Test
     public void addClinicalNoteMultipleTest() {
         assertEquals(0, patient1.getClinicalNotes().size());
@@ -346,6 +377,7 @@ public class TestPatient {
         assertEquals(clinicalNote3, patient1.getClinicalNotes().get(1));
     }
 
+    // Tests that adding a duplicate clinical note returns false and does not add it again
     @Test
     public void addClinicalNoteDuplicateTest() {
         assertEquals(0, patient1.getClinicalNotes().size());
@@ -355,6 +387,7 @@ public class TestPatient {
         assertEquals(clinicalNote1, patient1.getClinicalNotes().get(0));
     }
 
+    // Tests that removing a clinical note removes it from the patient's note list
     @Test
     public void removeClinicalNoteTest() {
         assertTrue(patient1.addClinicalNote(clinicalNote2));
@@ -364,6 +397,7 @@ public class TestPatient {
         assertEquals(0, patient1.getClinicalNotes().size()); 
     }
 
+    // Tests that removing multiple clinical notes one at a time updates the list correctly
     @Test
     public void removeClinicalNoteMultipleTest() {
         assertTrue(patient1.addClinicalNote(clinicalNote1));
@@ -378,6 +412,7 @@ public class TestPatient {
         assertEquals(0, patient1.getClinicalNotes().size());
     }
 
+    // Tests that removing a clinical note not present returns false and leaves the list unchanged
     @Test
     public void removeClinicalNoteNotPresentTest() {
         assertTrue(patient1.addClinicalNote(clinicalNote1));
@@ -388,11 +423,13 @@ public class TestPatient {
         assertEquals(clinicalNote2, patient1.getClinicalNotes().get(1));
     }
 
+    // Tests that printAllergies reports no allergies when the list is empty
     @Test
     public void printAllergiesNoneTest() {
         assertEquals("No allergies", patient1.printAllergies());
     }
 
+    // Tests that printAllergies formats a comma-separated capitalized list of allergies
     @Test
     public void printAllergiesTest() {
         assertTrue(patient1.addAllergy("penicillin"));
@@ -401,11 +438,13 @@ public class TestPatient {
         assertEquals("Penicillin, codeine", patient1.printAllergies());
     }
 
+    // Tests that printMedications reports no medications when the list is empty
     @Test
     public void printMedicationsNoneTest() {
         assertEquals("No medications", patient1.printMedications());
     }
 
+    // Tests that printMedications formats a comma-separated capitalized list of medications
     @Test
     public void printMedicationsTest() {
         assertTrue(patient1.addMedication("rosuvastatin"));
@@ -414,11 +453,13 @@ public class TestPatient {
         assertEquals("Rosuvastatin, metformin", patient1.printMedications());
     }
 
+    // Tests that printMedicalConditions reports no conditions when the list is empty
     @Test
     public void printMedicalConditionsNoneTest() {
         assertEquals("No medical conditions", patient1.printMedicalConditions());
     }
 
+    // Tests that printMedicalConditions formats a comma-separated capitalized list of conditions
     @Test
     public void printMedicalConditionsTest() {
         assertTrue(patient1.addMedicalCondition("hypertension"));
@@ -427,6 +468,7 @@ public class TestPatient {
         assertEquals("Hypertension, diabetes mellitus", patient1.printMedicalConditions());
     }
 
+    // Tests that printClinicalNotes reports no notes when the list is empty
     @Test
     public void printClinicalNotesNoneTest() {
         assertEquals(
@@ -435,6 +477,7 @@ public class TestPatient {
                 patient1.printClinicalNotes());
     }
 
+    // Tests that printClinicalNotes formats one or more notes with title, body, provider, and date
     @Test
     public void printClinicalNotesTest() {
         assertTrue(patient1.addClinicalNote(clinicalNote1));
@@ -457,6 +500,7 @@ public class TestPatient {
                 patient1.printClinicalNotes());
     }
 
+    // Tests that setFirstName updates the patient's first name
     @Test
     public void setFirstNameTest() {
         assertEquals("Paul", patient1.getFirstName());
@@ -464,6 +508,7 @@ public class TestPatient {
         assertEquals("Steven", patient1.getFirstName());
     }
 
+    // Tests that setLastName updates the patient's last name
     @Test
     public void setLastNameTest() {
         assertEquals("Jackson", patient1.getLastName());
@@ -471,6 +516,7 @@ public class TestPatient {
         assertEquals("Li", patient1.getLastName());
     }
 
+    // Tests that setDateOfBirth and setAge update the patient's date of birth and age
     @Test
     public void setDateOfBirthAndAgeTest() {
         assertEquals(dateOfBirth1, patient1.getDateOfBirth());
@@ -481,6 +527,7 @@ public class TestPatient {
         assertEquals(63, patient1.getAge());
     }
 
+    // Tests that setPersonalHealthNumber updates the patient's health number
     @Test
     public void setPersonalHealthNumberTest() {
         assertEquals(9876543210L, patient1.getPersonalHealthNumber());

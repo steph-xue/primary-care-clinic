@@ -16,7 +16,7 @@ import java.awt.event.MouseEvent;
 // JOptionPane Health Logo /images/health.jpg retrieved from https://www.freepik.com/premium-vector/
 //basic-healthcare-icon-vector-image-can-be-used-home-services_157661598.html
 
-// AddPatientUI displays a form to add a new patient to the clinic
+// AddPatientUI displays a form to add a new patient to the clinic.
 public class AddPatientUI extends JPanel {
     private MainUI parent;
     private Clinic clinic;
@@ -37,7 +37,7 @@ public class AddPatientUI extends JPanel {
     private List<String> currentMedicalConditionsList;
     private JButton addButton;
 
-    // Constructs a AddPatientUI JPanel with a navigation bar to add a new patient to the clinic 
+    // EFFECTS: Constructs an AddPatientUI JPanel with a navigation bar to add a new patient to the clinic.
     public AddPatientUI(MainUI parent, Clinic clinic) {
         this.parent = parent;
         this.clinic = clinic;
@@ -65,7 +65,7 @@ public class AddPatientUI extends JPanel {
     }
 
     // MODIFIES: this
-    // EFFECTS: Create main container panel for overall centered layout
+    // EFFECTS: Creates main container panel for overall centered layout.
     public void createMainContainerPanel() {
         mainContainerPanel = new JPanel();
         mainContainerPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
@@ -73,7 +73,7 @@ public class AddPatientUI extends JPanel {
     }
 
     // MODIFIES: this
-    // EFFECTS: Create content panel for vertical box layout of form elements
+    // EFFECTS: Creates content panel for vertical box layout of form elements.
     public void createContentPanel() {
         contentPanel = new JPanel();
         contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.Y_AXIS));
@@ -90,7 +90,7 @@ public class AddPatientUI extends JPanel {
     }
 
     // MODIFIES: this
-    // EFFECTS: Creates and styles a scrolling pane for the create new user screen
+    // EFFECTS: Creates and styles a scrolling pane for the create new user screen.
     public void addScrollBar() {
         scrollPane = new JScrollPane(mainContainerPanel);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
@@ -100,7 +100,7 @@ public class AddPatientUI extends JPanel {
     }
 
     // MODIFIES: this
-    // EFFECTS: Add form fields for user input (for demographic/personal information)
+    // EFFECTS: Adds form fields for user input (for demographic/personal information).
     public void addFormFields() {
         firstNameField = createStyledTextField();
         addFormField("First Name: ", firstNameField);
@@ -114,8 +114,8 @@ public class AddPatientUI extends JPanel {
         addFormField("Personal Health Number (PHN) (9-digits): ", phnField);
     }
 
-    // EFFECTS: Create styled text input field (for demographic/personal information);
-    // returns it as a JTextField
+    // EFFECTS: Creates styled text input field (for demographic/personal information).
+    // Returns it as a JTextField.
     public JTextField createStyledTextField() {
         JTextField textfield = new JTextField(20);
         textfield.setFont(new Font("Arial", Font.PLAIN, 18));
@@ -124,7 +124,7 @@ public class AddPatientUI extends JPanel {
     }
 
     // MODIFIES: this
-    // EFFECTS: Add a label and text field for each form field (for demographic/personal information)
+    // EFFECTS: Adds a label and text field for each form field (for demographic/personal information).
     public void addFormField(String text, JTextField textField) {
         JPanel panel = new JPanel(); 
         panel.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 0));
@@ -141,7 +141,7 @@ public class AddPatientUI extends JPanel {
     }
 
     // MODIFIES: this
-    // EFFECTS: Add list fields for user input (for allergies, medications, medical conditions)
+    // EFFECTS: Adds list fields for user input (for allergies, medications, medical conditions).
     public void addListFields() {
         allergiesListUI = createStyledList();
         addListField("Allergies:", allergiesListUI, currentAllergiesList);
@@ -153,8 +153,8 @@ public class AddPatientUI extends JPanel {
         addListField("Medical Conditions:", conditionsListUI, currentMedicalConditionsList);
     }
 
-    // EFFECTS: Create styled list for displaying list items (for allergies, medications, medical conditions);
-    // returns it as a JList<String>
+    // EFFECTS: Creates styled list for displaying list items (for allergies, medications, medical conditions).
+    // Returns it as a JList<String>.
     public JList<String> createStyledList() {
         JList<String> list = new JList<>(new DefaultListModel<>());
         list.setVisibleRowCount(3);
@@ -167,8 +167,8 @@ public class AddPatientUI extends JPanel {
     }
 
     // MODIFIES: this
-    // EFFECTS: Add the title, current list, and button to add/remove to the list for each list field
-    // (allergies, medications, medical conditions)
+    // EFFECTS: Adds the title, current list, and button to add/remove to the list for each list field
+    // (allergies, medications, medical conditions).
     public void addListField(String title, JList<String> listUI, List<String> list) {
         JPanel panel = new JPanel(new BorderLayout());
         panel.setBackground(Color.WHITE);
@@ -216,7 +216,7 @@ public class AddPatientUI extends JPanel {
     }
 
     // MODIFIES: this
-    // EFFECTS: Create add button to add a new patient to the clinic
+    // EFFECTS: Creates add button to add a new patient to the clinic.
     public void createAddButton() {
         addButton = new JButton("Add New Patient");
         styleButton(addButton);
@@ -224,7 +224,7 @@ public class AddPatientUI extends JPanel {
     }
 
     // MODIFIES: newPatient
-    // EFFECTS: Adds allergies, medications, and medical condtions inputed by the user to the new patient
+    // EFFECTS: Adds allergies, medications, and medical condtions inputed by the user to the new patient.
     public void addPatientListData(Patient newPatient) {
         for (String allergy: currentAllergiesList) {
             newPatient.addAllergy(allergy);
@@ -239,7 +239,7 @@ public class AddPatientUI extends JPanel {
         }
     }
 
-    // EFFECTS: Parse user inputed information to create a new patient to add to the clinic
+    // EFFECTS: Parses user inputed information to create a new patient to add to the clinic.
     public void createNewPatient() {
         String firstName = firstNameField.getText().trim();
         String lastName = lastNameField.getText().trim();
@@ -264,8 +264,8 @@ public class AddPatientUI extends JPanel {
         }
     }
 
-    // EFFECTS: Parses age from string to integer; shows error message if age is not in the right format;
-    // returns the age as an integer
+    // EFFECTS: Parses age from string to integer. Shows error message if age is not in the right format.
+    // Returns the age as an integer.
     public int parseAge(String age) {
         try {
             return Integer.parseInt(age);
@@ -276,8 +276,8 @@ public class AddPatientUI extends JPanel {
         }
     }
 
-    // EFFECTS: Parses phn from string to long; shows error message if phn is not in the right format
-    // or if it is not 9-digits long; returns the phn as a long
+    // EFFECTS: Parses phn from string to long. Shows error message if phn is not in the right format
+    // or if it is not 9-digits long. Returns the phn as a long.
     public long parsePersonalHealthNumber(String phn) {
         try {
             if (phn.length() != 9) {
@@ -293,8 +293,8 @@ public class AddPatientUI extends JPanel {
         }
     }
 
-    // EFFECTS: Parses date of birth in (MM-DD-YYYY) string format to date object; shows error message if
-    // string date is not in the right format or invalid date; returns date of birth as a date object
+    // EFFECTS: Parses date of birth in (MM-DD-YYYY) string format to date object. Shows error message if
+    // string date is not in the right format or invalid date. Returns date of birth as a date object.
     public Date parseDateOfBirth(String dateOfBirth) {
         try {
             String[] parts = dateOfBirth.split("-");
@@ -343,9 +343,9 @@ public class AddPatientUI extends JPanel {
     }
 
     // MODIFIES: this
-    // EFFECTS: Creates a new patient object with the user inputed information to add to the clinic;
-    // clears all fields and lists once patient is successfully added with a success message and
-    // reloads the view all patients screen
+    // EFFECTS: Creates a new patient object with the user inputed information to add to the clinic.
+    // Clears all fields and lists once patient is successfully added with a success message and
+    // reloads the view all patients screen.
     public void addPatient(String firstName, String lastName, Date parsedDateOfBirth, int parsedAge, 
             long parsedPersonalHealthNumber) {
                 
@@ -368,7 +368,7 @@ public class AddPatientUI extends JPanel {
     }
 
     // MODIFIES: this
-    // EFFECTS: Clears all user input fields and resets all lists
+    // EFFECTS: Clears all user input fields and resets all lists.
     public void clearFields() {
         firstNameField.setText("");
         lastNameField.setText("");
@@ -385,7 +385,7 @@ public class AddPatientUI extends JPanel {
     }
 
     // MODIFIES: button
-    // EFFECTS: Add styling to the button (add new patient button)
+    // EFFECTS: Adds styling to the button (add new patient button).
     public void styleButton(JButton button) {
         button.setFont(new Font("Arial", Font.BOLD, 20));
         button.setPreferredSize(new Dimension(500, 50));
@@ -401,7 +401,7 @@ public class AddPatientUI extends JPanel {
     }
 
     // MODIFIES: button
-    // EFFECTS: Add hover effects to the button (add new patient button)
+    // EFFECTS: Adds hover effects to the button (add new patient button).
     public void addButtonEffects(JButton button) {
         button.addMouseListener(new MouseAdapter() {
             @Override

@@ -6,55 +6,38 @@ import java.util.Iterator;
 
 // Referenced https://github.students.cs.ubc.ca/CPSC210/AlarmSystem
 
-/**
- * Represents a log of primary care clinic events.
- * We use the Singleton Design Pattern to ensure that there is only
- * one EventLog in the system and that the system has global access
- * to the single instance of the EventLog.
- */
+// A class representing a log of primary care clinic events. Uses the Singleton Design Pattern to
+// ensure there is only one EventLog in the system and that the system has global access to it.
 public class EventLog implements Iterable<Event> {
-    /** the only EventLog in the system (Singleton Design Pattern) */
+    // The only EventLog in the system (Singleton Design Pattern)
     private static EventLog theLog;
     private Collection<Event> events;
 
-    /**
-     * Prevent external construction.
-     * (Singleton Design Pattern).
-     */
+    // EFFECTS: Constructs an empty event log. Private to prevent external construction (Singleton Design Pattern).
     private EventLog() {
         events = new ArrayList<Event>();
     }
 
-    /**
-     * Gets instance of EventLog - creates it
-     * if it doesn't already exist.
-     * (Singleton Design Pattern)
-     * 
-     * @return instance of EventLog
-     */
+    // EFFECTS: Gets instance of EventLog, creating it first if it doesn't already exist (Singleton Design Pattern).
     public static EventLog getInstance() {
         if (theLog == null) {
             theLog = new EventLog();
         }
-            
+
         return theLog;
     }
 
-    /**
-     * Adds an event to the event log.
-     * 
-     * @param e the event to be added
-     */
+    // MODIFIES: this
+    // EFFECTS: Adds an event to the event log.
     public void logEvent(Event e) {
         events.add(e);
     }
 
-    /**
-     * Clears the event log and logs the event.
-     */
+    // MODIFIES: this
+    // EFFECTS: Clears the event log and logs the event.
     public void clear() {
         events.clear();
-        logEvent(new Event("Event log cleared."));
+        logEvent(new Event("Event log cleared"));
     }
 
     @Override

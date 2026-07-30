@@ -7,14 +7,14 @@ import java.awt.*;
 // EHR image /images/ehr.jpg retrieved from https://www.vecteezy.com/
 // Loading gif image /images/loading.gif retrieved from https://icons8.com/icons/set/dots-loading--animated
 
-// LoadingScreenUI displays loading screen with an image and welcome message to the user with a 
-// loading gif for 10 seconds
+// LoadingScreenUI displays loading screen with an image and welcome message to the user with a
+// loading gif for 10 seconds.
 public class LoadingScreenUI extends JPanel {
     private JPanel contentPanel;
     private JLabel welcomeLabel;
     private JPanel loadingPanel;
 
-    // EFFECTS: Constructs a LoadingScreenUI JPanel
+    // EFFECTS: Constructs a LoadingScreenUI JPanel.
     public LoadingScreenUI() {
         setLayout(new BorderLayout());
         setBackground(Color.WHITE);
@@ -38,7 +38,7 @@ public class LoadingScreenUI extends JPanel {
     }
 
     // MODIFIES: this
-    // EFFECTS: Creates a welcome label with an image and welcome message
+    // EFFECTS: Creates a welcome label with an image and welcome message.
     public void createWelcomeLabel() {
         ImageIcon ehrImage = new ImageIcon(getClass().getResource("/images/ehr.jpg"));
         ehrImage = new ImageIcon(ehrImage.getImage().getScaledInstance(500, 400, Image.SCALE_SMOOTH));  
@@ -53,7 +53,7 @@ public class LoadingScreenUI extends JPanel {
     }
 
     // MODIFIES: this
-    // EFFECTS: Creates a loading panel with a loading gif and message
+    // EFFECTS: Creates a loading panel with a loading gif and message.
     public void createLoadingPanel() {
         JLabel imageLabel = new JLabel();
         ImageIcon loadingImage = new ImageIcon(getClass().getResource("/images/loading.gif"));

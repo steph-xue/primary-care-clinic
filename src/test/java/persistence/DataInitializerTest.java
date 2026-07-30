@@ -18,6 +18,7 @@ public class DataInitializerTest {
     @TempDir
     File tempDir;
 
+    // Tests that a missing destination file is created from the bundled sample resource
     @Test
     void testInitializeIfMissingCreatesFileFromResource() {
         try {
@@ -32,6 +33,7 @@ public class DataInitializerTest {
         }
     }
 
+    // Tests that an already-existing destination file is left untouched
     @Test
     void testInitializeIfMissingDoesNotOverwriteExistingFile() {
         try {
@@ -46,6 +48,7 @@ public class DataInitializerTest {
         }
     }
 
+    // Tests that initialization throws an IOException when the source resource does not exist
     @Test
     void testInitializeIfMissingThrowsWhenResourceNotFound() {
         File destination = new File(tempDir, "clinic.json");

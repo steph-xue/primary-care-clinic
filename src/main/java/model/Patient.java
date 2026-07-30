@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 // A class representing a patient with a first name, last name, date of birth (DOB), age, personal health number (PHN),
-// list of current allergies, medications, medical conditions, and clinical notes; first and last name are capitalized, 
-// list of Strings for allergies, medications, and medical conditions are lowercase
+// list of current allergies, medications, medical conditions, and clinical notes. First and last name are capitalized, 
+// list of Strings for allergies, medications, and medical conditions are lowercase.
 public class Patient implements Writable {
 
     private String firstName;
@@ -23,8 +23,8 @@ public class Patient implements Writable {
     private List<ClinicalNote> clinicalNotes;
 
     // REQUIRES: age > 0, personalHealthNumber > 0
-    // EFFECTS: constructs a new record for a patient with their first name, last name, DOB, age, PHN, and an empty
-    // list of current allergies, medications, medical conditions, and clinical notes
+    // EFFECTS: Constructs a new record for a patient with their first name, last name, DOB, age, PHN, and an empty
+    // list of current allergies, medications, medical conditions, and clinical notes.
     public Patient(String firstName, String lastName, Date dateOfBirth, int age, long personalHealthNumber) {
         String firstNameCapitalized = firstName.substring(0, 1).toUpperCase() + firstName.substring(1).toLowerCase();
         this.firstName = firstNameCapitalized;
@@ -42,9 +42,9 @@ public class Patient implements Writable {
     }
 
     // MODIFIES: this
-    // EFFECTS: adds allergy to patient's current list of allergies, returns true if successfully added (not 
-    // already in current list to prevent duplicates) and false if not successfully added (duplicate entry);
-    // add and compare allergy in lowercase
+    // EFFECTS: Adds allergy to patient's current list of allergies, returns true if successfully added (not 
+    // already in current list to prevent duplicates) and false if not successfully added (duplicate entry).
+    // Add and compare allergy in lowercase.
     public boolean addAllergy(String allergy) {
         String allergyLowerCase = allergy.toLowerCase();
 
@@ -59,8 +59,8 @@ public class Patient implements Writable {
     }
 
     // MODIFIES: this
-    // EFFECTS: removes allergy from patient's current list of allergies if present, returns true if successfully 
-    // removed and false if not succesfully removed (not found in list); compare and remove allergy in lowercase
+    // EFFECTS: Removes allergy from patient's current list of allergies if present, returns true if successfully 
+    // removed and false if not succesfully removed (not found in list). Compare and remove allergy in lowercase.
     public boolean removeAllergy(String allergy) {
         String allergyLowerCase = allergy.toLowerCase();
 
@@ -75,9 +75,9 @@ public class Patient implements Writable {
     }
 
     // MODIFIES: this
-    // EFFECTS: if present in current list of allergies, replaces old allergy with new edited allergy, returns true
-    // if edit is successful and false if not successful (allergy to edit not found in list); compare and edit allergy
-    // in lowercase
+    // EFFECTS: If present in current list of allergies, replaces old allergy with new edited allergy, returns true
+    // if edit is successful and false if not successful (allergy to edit not found in list). Compare and edit allergy
+    // in lowercase.
     public boolean editAllergy(String oldAllergy, String newAllergy) {
         String oldAllergyLowerCase = oldAllergy.toLowerCase();
         String newAllergyLowerCase = newAllergy.toLowerCase();
@@ -94,9 +94,9 @@ public class Patient implements Writable {
     }
 
     // MODIFIES: this
-    // EFFECTS: adds medication to patient's current list of medications, returns true if successfully added 
-    // (not already in current list to prevent duplicates) and false if not successfully added (duplicate entry)
-    // add and compare medication in lowercase
+    // EFFECTS: Adds medication to patient's current list of medications, returns true if successfully added
+    // (not already in current list to prevent duplicates) and false if not successfully added (duplicate entry).
+    // Add and compare medication in lowercase.
     public boolean addMedication(String medication) {
         String medicationLowerCase = medication.toLowerCase();
 
@@ -111,9 +111,9 @@ public class Patient implements Writable {
     }
 
     // MODIFIES: this
-    // EFFECTS: removes medication from patient's current list of medications if present, returns true
-    // if successfully removed and false if not succesfully removed (not found in list); compare and 
-    // remove medication in lowercase
+    // EFFECTS: Removes medication from patient's current list of medications if present, returns true
+    // if successfully removed and false if not succesfully removed (not found in list). Compare and 
+    // remove medication in lowercase.
     public boolean removeMedication(String medication) {
         String medicationLowerCase = medication.toLowerCase();
 
@@ -128,9 +128,9 @@ public class Patient implements Writable {
     }
 
     // MODIFIES: this
-    // EFFECTS: if present in current list of medications, replaces old with new edited medication, 
-    // returns true if edit is successful and false if not successful (medication to edit not found in list) 
-    // compare and edit medication in lowercase
+    // EFFECTS: If present in current list of medications, replaces old with new edited medication, 
+    // returns true if edit is successful and false if not successful (medication to edit not found in list).
+    // Compare and edit medication in lowercase.
     public boolean editMedication(String oldMedication, String newMedication) {
         String oldMedicationLowerCase = oldMedication.toLowerCase();
         String newMedicationLowerCase = newMedication.toLowerCase();
@@ -147,9 +147,9 @@ public class Patient implements Writable {
     }
 
     // MODIFIES: this
-    // EFFECTS: adds medical condition to patient's current list of medical conditions, returns true if successfully
-    // added (not already in current list to prevent duplicates) and false if not successfully added (duplicate entry)
-    // add and compare medication in lowercase
+    // EFFECTS: Adds medical condition to patient's current list of medical conditions, returns true if successfully
+    // added (not already in current list to prevent duplicates) and false if not successfully added (duplicate entry).
+    // Add and compare medical condition in lowercase.
     public boolean addMedicalCondition(String medicalCondition) {
         String medicalConditionLowerCase = medicalCondition.toLowerCase();
 
@@ -164,9 +164,9 @@ public class Patient implements Writable {
     }
 
     // MODIFIES: this
-    // EFFECTS: removes medical condition from patient's current list of medical conditions if present, returns true
-    // if successfully removed and false if not succesfully removed (not found in list); compare and remove medication 
-    // in lowercase
+    // EFFECTS: Removes medical condition from patient's current list of medical conditions if present, returns true
+    // if successfully removed and false if not succesfully removed (not found in list). Compare and remove medication 
+    // in lowercase.
     public boolean removeMedicalCondition(String medicalCondition) {
         String medicalConditionLowerCase = medicalCondition.toLowerCase();
 
@@ -181,9 +181,9 @@ public class Patient implements Writable {
     }
 
     // MODIFIES: this
-    // EFFECTS: if present in current list of medical conditions, replaces old with new edited medical condition,
-    // returns true if edit is successful and false if not successful (medical condition to edit not found in list)
-    // compare and edit medication in lowercase
+    // EFFECTS: If present in current list of medical conditions, replaces old with new edited medical condition,
+    // returns true if edit is successful and false if not successful (medical condition to edit not found in list).
+    // Compare and edit medical condition in lowercase.
     public boolean editMedicalCondition(String oldMedicalCondition, String newMedicalCondition) {
         String oldMedicalConditionLowerCase = oldMedicalCondition.toLowerCase();
         String newMedicalConditionLowerCase = newMedicalCondition.toLowerCase();
@@ -200,8 +200,8 @@ public class Patient implements Writable {
     }
 
     // MODIFIES: this
-    // EFFECTS: adds clinical note to patient's list of clinical notes, returns true if successfully added (not 
-    // already in current list to prevent duplicates) and false if not successfully added (duplicate entry)
+    // EFFECTS: Adds clinical note to patient's list of clinical notes, returns true if successfully added (not 
+    // already in current list to prevent duplicates) and false if not successfully added (duplicate entry).
     public boolean addClinicalNote(ClinicalNote note) {
         if (!this.clinicalNotes.contains(note)) {
             this.clinicalNotes.add(note);
@@ -214,8 +214,8 @@ public class Patient implements Writable {
     }
 
     // MODIFIES: this
-    // EFFECTS: removes clinical note from patient's list of clinical notes if present, returns true
-    // if successfully removed and false if not succesfully removed (not found in list)
+    // EFFECTS: Removes clinical note from patient's list of clinical notes if present, returns true
+    // if successfully removed and false if not succesfully removed (not found in list).
     public boolean removeClinicalNote(ClinicalNote note) {
         if (this.clinicalNotes.contains(note)) {
             this.clinicalNotes.remove(note);
@@ -227,8 +227,8 @@ public class Patient implements Writable {
         }
     }
 
-    // EFFECTS: prints patient's current list of allergies in string format
-    // separated by commas, or prints no allergies if list is empty
+    // EFFECTS: Prints patient's current list of allergies in string format
+    // separated by commas, or prints no allergies if list is empty.
     public String printAllergies() {
         if (allergies.isEmpty()) {
             return "No allergies";
@@ -251,8 +251,8 @@ public class Patient implements Writable {
         return result.toString();
     }
 
-    // EFFECTS: prints patient's current list of medications in string format
-    // separated by commas, or prints no medications if list is empty
+    // EFFECTS: Prints patient's current list of medications in string format
+    // separated by commas, or prints no medications if list is empty.
     public String printMedications() {
         if (medications.isEmpty()) {
             return "No medications";
@@ -275,8 +275,8 @@ public class Patient implements Writable {
         return result.toString();
     }
 
-    // EFFECTS: prints patient's current list of medical conditions in string format
-    // separated by commas, or prints no medical conditions if list is empty
+    // EFFECTS: Prints patient's current list of medical conditions in string format
+    // separated by commas, or prints no medical conditions if list is empty.
     public String printMedicalConditions() {
         if (medicalConditions.isEmpty()) {
             return "No medical conditions";
@@ -299,7 +299,7 @@ public class Patient implements Writable {
         return result.toString();
     }
 
-    // EFFECTS: prints details of patient's list of clinical notes 
+    // EFFECTS: Prints details of patient's list of clinical notes. 
     public String printClinicalNotes() {
         if (clinicalNotes.isEmpty()) {
             StringBuilder result = new StringBuilder();
@@ -324,7 +324,7 @@ public class Patient implements Writable {
 
     // Setters
     // MODIFIES: this
-    // EFFECTS: sets the patient's first name to a new given first name
+    // EFFECTS: Sets the patient's first name to a new given first name.
     public void setFirstName(String firstName) {
         String oldFirstName = this.firstName;
         String firstNameCapitalized = firstName.substring(0, 1).toUpperCase() + firstName.substring(1).toLowerCase();
@@ -334,7 +334,7 @@ public class Patient implements Writable {
     }
 
     // MODIFIES: this
-    // EFFECTS: sets the patient's last name to a new given last name
+    // EFFECTS: Sets the patient's last name to a new given last name.
     public void setLastName(String lastName) {
         String oldLastName = this.lastName;
         String lastNameCapitalized = lastName.substring(0, 1).toUpperCase() + lastName.substring(1).toLowerCase();
@@ -344,7 +344,7 @@ public class Patient implements Writable {
     }
 
     // MODIFIES: this
-    // EFFECTS: sets the patient's DOB new given DOB 
+    // EFFECTS: Sets the patient's DOB new given DOB. 
     public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
         EventLog.getInstance().logEvent(new Event("Set date of birth of patient " + this.firstName 
@@ -353,7 +353,7 @@ public class Patient implements Writable {
 
     // REQUIRES: age > 0
     // MODIFIES: this
-    // EFFECTS: sets the patient's age to a new given age
+    // EFFECTS: Sets the patient's age to a new given age.
     public void setAge(int age) {
         this.age = age;
         EventLog.getInstance().logEvent(new Event("Set age of patient " + this.firstName 
@@ -362,7 +362,7 @@ public class Patient implements Writable {
 
     // REQUIRES: personalHealthNumber > 0
     // MODIFIES: this
-    // EFFECTS: sets the patient's PHN to a new given PHN
+    // EFFECTS: Sets the patient's PHN to a new given PHN.
     public void setPersonalHealthNumber(long personalHealthNumber) {
         this.personalHealthNumber = personalHealthNumber;
         EventLog.getInstance().logEvent(new Event("Set personal health number of patient " + this.firstName
@@ -370,57 +370,57 @@ public class Patient implements Writable {
     }
 
     // Getters
-    // EFFECTS: gets patient's first name
+    // EFFECTS: Gets patient's first name.
     public String getFirstName() {
         return firstName;
     }
 
-    // EFFECTS: gets patient's last name
+    // EFFECTS: Gets patient's last name.
     public String getLastName() {
         return lastName;
     }
 
-    // EFFECTS: gets patient's full name
+    // EFFECTS: Gets patient's full name.
     public String getFullName() {
         return firstName + " " + lastName;
     }
 
-    // EFFECTS: gets patient's DOB
+    // EFFECTS: Gets patient's DOB.
     public Date getDateOfBirth() {
         return dateOfBirth;
     }
 
-    // EFFECTS: gets patient's age
+    // EFFECTS: Gets patient's age.
     public int getAge() {
         return age;
     }
 
-    // EFFECTS: gets patient's PHN
+    // EFFECTS: Gets patient's PHN.
     public long getPersonalHealthNumber() {
         return personalHealthNumber;
     }
 
-    // EFFECTS: gets patient's current list of allergies
+    // EFFECTS: Gets patient's current list of allergies.
     public List<String> getAllergies() {
         return allergies;
     }
 
-    // EFFECTS: gets patient's current list of medications
+    // EFFECTS: Gets patient's current list of medications.
     public List<String> getMedications() {
         return medications;
     }
 
-    // EFFECTS: gets patient's current list of medical conditions
+    // EFFECTS: Gets patient's current list of medical conditions.
     public List<String> getMedicalConditions() {
         return medicalConditions;
     }
 
-    // EFFECTS: gets patient's list of clinical notes
+    // EFFECTS: Gets patient's list of clinical notes.
     public List<ClinicalNote> getClinicalNotes() {
         return clinicalNotes;
     }
 
-    // EFFECTS: returns patient as a JSON object
+    // EFFECTS: Returns patient as a JSON object.
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
@@ -436,7 +436,7 @@ public class Patient implements Writable {
         return json;
     }
 
-    // EFFECTS: returns date of birth (DOB) for this patient as a JSON object
+    // EFFECTS: Returns date of birth (DOB) for this patient as a JSON object.
     private JSONObject dateOfBirthToJson() {
         JSONObject json = new JSONObject();
         json.put("month", dateOfBirth.getMonth());
@@ -445,7 +445,7 @@ public class Patient implements Writable {
         return json;
     }
 
-    // EFFECTS: returns allergies for this patient as a JSON array
+    // EFFECTS: Returns allergies for this patient as a JSON array.
     private JSONArray allergiesToJson() {
         JSONArray jsonArray = new JSONArray();
 
@@ -456,7 +456,7 @@ public class Patient implements Writable {
         return jsonArray;
     }
 
-    // EFFECTS: returns medications for this patient as a JSON array
+    // EFFECTS: Returns medications for this patient as a JSON array.
     private JSONArray medicationsToJson() {
         JSONArray jsonArray = new JSONArray();
 
@@ -467,7 +467,7 @@ public class Patient implements Writable {
         return jsonArray;
     }
 
-    // EFFECTS: returns medical conditions for this patient as a JSON array
+    // EFFECTS: Returns medical conditions for this patient as a JSON array.
     private JSONArray medicalConditionsToJson() {
         JSONArray jsonArray = new JSONArray();
 
@@ -478,7 +478,7 @@ public class Patient implements Writable {
         return jsonArray;
     }
 
-    // EFFECTS: returns clinical notes for this patient as a JSON array
+    // EFFECTS: Returns clinical notes for this patient as a JSON array.
     private JSONArray clinicalNotesToJson() {
         JSONArray jsonArray = new JSONArray();
 

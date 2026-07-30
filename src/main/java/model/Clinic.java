@@ -8,15 +8,14 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-// A class representing a clinic with a name and list of patient records (sorted alphabetically by 
-// last name then first name)
+// A class representing a clinic with a name and list of patient records (sorted alphabetically by
+// last name then first name).
 public class Clinic implements Writable {
 
     private String name;
     private List<Patient> patients;
 
-    // EFFECTS: constructs a clinic with a given name and an empty list of patients;
-    // clinic name is capitalized
+    // EFFECTS: Constructs a clinic with a given name and an empty list of patients. Clinic name is capitalized.
     public Clinic(String name) {
         String nameCapitalized = name.substring(0, 1).toUpperCase() + name.substring(1);
         this.name = nameCapitalized;
@@ -24,9 +23,9 @@ public class Clinic implements Writable {
     }
 
     // MODIFIES: this
-    // EFFECTS: adds new patient to the clinic's patient records list and sorts patients list 
+    // EFFECTS: Adds new patient to the clinic's patient records list and sorts patients list 
     // alphabetically by last name then first name, returns true if succesfully added 
-    // (patient not already in list) or false if not successful (duplicate record found)
+    // (patient not already in list) or false if not successful (duplicate record found).
     public boolean addPatient(Patient patient) {
         if (!this.patients.contains(patient)) {
             this.patients.add(patient);
@@ -41,8 +40,8 @@ public class Clinic implements Writable {
     }
 
     // MODIFIES: this
-    // EFFECTS: removes patient from the clinic's patient records list; returns true if successfully
-    // removed (patient is found in list) and false if not successful (patient not in list)
+    // EFFECTS: Removes patient from the clinic's patient records list. Returns true if successfully
+    // removed (patient is found in list) and false if not successful (patient not in list).
     public boolean removePatient(Patient patient) {
         if (this.patients.contains(patient)) {
             this.patients.remove(patient);
@@ -54,8 +53,8 @@ public class Clinic implements Writable {
         }
     }
 
-    // EFFECTS: prints summary of patient records in the clinic in String format with name, DOB,
-    // age, and PHN (sorted alphabetically by last name then first name)
+    // EFFECTS: Prints summary of patient records in the clinic in String format with name, DOB,
+    // age, and PHN (sorted alphabetically by last name then first name).
     public String printPatientRecords() {
         if (patients.isEmpty()) {
             StringBuilder result = new StringBuilder();
@@ -80,7 +79,7 @@ public class Clinic implements Writable {
 
     // Setters
     // MODIFIES: this
-    // EFFECTS: sets clinic's name
+    // EFFECTS: Sets clinic's name.
     public void setClinicName(String name) {
         String nameCapitalized = name.substring(0, 1).toUpperCase() + name.substring(1);
         this.name = nameCapitalized;
@@ -88,23 +87,23 @@ public class Clinic implements Writable {
     }
 
     // MODIFIES: this
-    // EFFECTS: sets list of patients
+    // EFFECTS: Sets list of patients.
     public void setPatients(List<Patient> patients) {
         this.patients = patients;
     }
 
     // Getters
-    // EFFECTS: gets clinic's name
+    // EFFECTS: Gets clinic's name.
     public String getClinicName() {
         return name;
     }
 
-    // EFFECTS: gets clinic's list of patient records (sorted alphabetically by last name then first name)
+    // EFFECTS: Gets clinic's list of patient records (sorted alphabetically by last name then first name).
     public List<Patient> getPatients() {
         return patients;
     }
 
-    // EFFECTS: returns clinic as a JSON object
+    // EFFECTS: Returns clinic as a JSON object.
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
@@ -113,7 +112,7 @@ public class Clinic implements Writable {
         return json;
     }
 
-    // EFFECTS: returns patients in this clinic as a JSON array
+    // EFFECTS: Returns patients in this clinic as a JSON array.
     private JSONArray patientsToJson() {
         JSONArray jsonArray = new JSONArray();
 

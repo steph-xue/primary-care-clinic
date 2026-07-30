@@ -3,8 +3,8 @@ package model;
 import org.json.JSONObject;
 import persistence.Writable;
 
-// A class representing a clinical note for a patient's visit at the clinic with a title, body, name of 
-// healthcare provider seen, and date of visit
+// A class representing a clinical note for a patient's visit at the clinic with a title, body, name of
+// healthcare provider seen, and date of visit.
 public class ClinicalNote implements Writable {
 
     private String title;
@@ -12,8 +12,8 @@ public class ClinicalNote implements Writable {
     private String healthCareProvider;
     private Date visitDate;
 
-    // EFFECTS: constructs a clinical note with a given title, body, name of healthcare provider seen, and current date;
-    // title, body, and healthcare provider name are capitalized
+    // EFFECTS: Constructs a clinical note with a given title, body, name of healthcare provider seen, and current date.
+    // Title, body, and healthcare provider name are capitalized.
     public ClinicalNote(String title, String body, String name, Date date) {
         String titleCapitalized = title.substring(0, 1).toUpperCase() + title.substring(1);
         this.title = titleCapitalized;
@@ -27,7 +27,7 @@ public class ClinicalNote implements Writable {
         this.visitDate = date;
     }
 
-    // EFFECTS: prints summary of the clinical note in String format
+    // EFFECTS: Prints summary of the clinical note in String format.
     public String printClinicaNote() {
         StringBuilder result = new StringBuilder();
 
@@ -42,7 +42,7 @@ public class ClinicalNote implements Writable {
 
     // Setters
     // MODIFIES: this
-    // EFFECTS: sets clinical note's title with given title (capitalized)
+    // EFFECTS: Sets clinical note's title with given title (capitalized).
     public void setClinicalNoteTitle(String title) {
         String titleCapitalized = title.substring(0, 1).toUpperCase() + title.substring(1);
         this.title = titleCapitalized;
@@ -50,7 +50,7 @@ public class ClinicalNote implements Writable {
     }
 
     // MODIFIES: this
-    // EFFECTS: sets clinical note's body with given body (capitalized)
+    // EFFECTS: Sets clinical note's body with given body (capitalized).
     public void setClinicalNoteBody(String body) {
         String bodyCapitalized = body.substring(0, 1).toUpperCase() + body.substring(1);
         this.body = bodyCapitalized;
@@ -58,7 +58,7 @@ public class ClinicalNote implements Writable {
     }
 
     // MODIFIES: this
-    // EFFECTS: sets clinical note's healthcare provider's name with given name (capitalized)
+    // EFFECTS: Sets clinical note's healthcare provider's name with given name (capitalized).
     public void setClinicalNoteProvider(String name) {
         String nameCapitalized = name.substring(0, 1).toUpperCase() + name.substring(1);
         this.healthCareProvider = nameCapitalized;
@@ -66,27 +66,27 @@ public class ClinicalNote implements Writable {
     }
 
     // Getters
-    // EFFECTS: gets clinical note's title
+    // EFFECTS: Gets clinical note's title.
     public String getClinicalNoteTitle() {
         return title;
     }
 
-    // EFFECTS: gets clinical note's body
+    // EFFECTS: Gets clinical note's body.
     public String getClinicalNoteBody() {
         return body;
     }
 
-    // EFFECTS: gets clinical note's healthcare provider's name
+    // EFFECTS: Gets clinical note's healthcare provider's name.
     public String getClinicalNoteProvider() {
         return healthCareProvider;
     }
 
-    // EFFECTS: gets clinical note's date of visit
+    // EFFECTS: Gets clinical note's date of visit.
     public Date getClinicalNoteDate() {
         return visitDate;
     }
 
-    // EFFECTS: returns clinical note as a JSON object
+    // EFFECTS: Returns clinical note as a JSON object.
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
@@ -97,7 +97,7 @@ public class ClinicalNote implements Writable {
         return json;
     }
 
-    // EFFECTS: returns visit date for this clinical note as a JSON object
+    // EFFECTS: Returns visit date for this clinical note as a JSON object.
     private JSONObject visitDateToJson() {
         JSONObject json = new JSONObject();
         json.put("month", visitDate.getMonth());

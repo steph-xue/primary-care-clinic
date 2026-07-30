@@ -1,5 +1,7 @@
+# Build output
 *.class
-.DS_Store
 bin/
 build/
-data/
+
+# Editor/OS files
+.DS_Store

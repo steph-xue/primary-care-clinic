@@ -5,39 +5,24 @@ import java.util.Date;
 
 // Referenced https://github.students.cs.ubc.ca/CPSC210/AlarmSystem
 
-/**
- * Represents a primary care clinic event.
- */
+// A class representing a primary care clinic event with a description and a date/time stamp.
 public class Event {
     private static final int HASH_CONSTANT = 13;
     private Date dateLogged;
     private String description;
 
-    /**
-     * Creates an event with the given description
-     * and the current date/time stamp.
-     * 
-     * @param description a description of the event
-     */
+    // EFFECTS: Constructs an event with the given description and the current date/time stamp.
     public Event(String description) {
         dateLogged = Calendar.getInstance().getTime();
         this.description = description;
     }
 
-    /**
-     * Gets the date of this event (includes time).
-     * 
-     * @return the date of the event
-     */
+    // EFFECTS: Gets the date of this event (includes time).
     public Date getDate() {
         return dateLogged;
     }
 
-    /**
-     * Gets the description of this event.
-     * 
-     * @return the description of the event
-     */
+    // EFFECTS: Gets the description of this event.
     public String getDescription() {
         return description;
     }

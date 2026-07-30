@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-// NavigationBarUI displays the navigation bar used to navigate the application and display the clinic name
+// NavigationBarUI displays the navigation bar used to navigate the application and display the clinic name.
 public class NavigationBarUI extends JPanel {
     private MainUI parent;
     private Clinic clinic;
@@ -19,7 +19,7 @@ public class NavigationBarUI extends JPanel {
     private JLabel clinicTitleLabel;
 
     // EFFECTS: Constructs a NavigationBarUI JPanel with a panel containing buttons for different screens, 
-    // as well as a label for displaying the clinic name
+    // as well as a label for displaying the clinic name.
     public NavigationBarUI(MainUI parent, Clinic clinic) {
         this.parent = parent;
         this.clinic = clinic;
@@ -38,7 +38,7 @@ public class NavigationBarUI extends JPanel {
         add(clinicTitleLabel, BorderLayout.SOUTH);
     }
 
-    // EFFECTS: Creates all buttons for the navigation bar
+    // EFFECTS: Creates all buttons for the navigation bar.
     public void createButtons() {
         createViewPatientsButton();
         createNewPatientButton();
@@ -47,7 +47,7 @@ public class NavigationBarUI extends JPanel {
     }
 
     // MODIFIES: this
-    // EFFECTS: Adds all buttons for the navigation bar to the buttonPanel
+    // EFFECTS: Adds all buttons for the navigation bar to the buttonPanel.
     public void addButtons() {
         buttonPanel.add(viewPatientsButton);
         buttonPanel.add(newPatientButton);
@@ -56,7 +56,7 @@ public class NavigationBarUI extends JPanel {
     }
 
     // MODIFIES: this
-    // EFFECTS: Creates a view patients button that displays the view all patients screen
+    // EFFECTS: Creates a view patients button that displays the view all patients screen.
     public void createViewPatientsButton() {
         viewPatientsButton = new JButton("View Patients");
         styleButton(viewPatientsButton);
@@ -64,7 +64,7 @@ public class NavigationBarUI extends JPanel {
     }
 
     // MODIFIES: this
-    // EFFECTS: Creates an add patient button that displays the form to add a new patient
+    // EFFECTS: Creates an add patient button that displays the form to add a new patient.
     public void createNewPatientButton() {
         newPatientButton = new JButton("Add Patient");
         styleButton(newPatientButton);
@@ -72,7 +72,7 @@ public class NavigationBarUI extends JPanel {
     }
 
     // MODIFIES: this
-    // EFFECTS: Creates a rename clinic button that allows the user to updates the name of the clinic
+    // EFFECTS: Creates a rename clinic button that allows the user to updates the name of the clinic.
     public void createRenameClinicButton() {
         renameClinicButton = new JButton("Rename Clinic");
         styleButton(renameClinicButton);
@@ -83,13 +83,13 @@ public class NavigationBarUI extends JPanel {
     }
 
     // MODIFIES: this
-    // EFFECTS: Updates clinic title in the navigation bar when renamed
+    // EFFECTS: Updates clinic title in the navigation bar when renamed.
     public void updateClinicTitle() {
         clinicTitleLabel.setText(clinic.getClinicName());
     }
 
     // MODIFIES: this
-    // EFFECTS: Creates a save and quit button that displays the save and quit screen
+    // EFFECTS: Creates a save and quit button that displays the save and quit screen.
     public void createSaveQuitButton() {
         saveQuitButton = new JButton("Save & Quit");
         styleButton(saveQuitButton);
@@ -97,7 +97,7 @@ public class NavigationBarUI extends JPanel {
     }
 
     // MODIFIES: this
-    // EFFECTS: Create clinic title label to display on the navigation bar
+    // EFFECTS: Creates clinic title label to display on the navigation bar.
     public void createClinicTitleLabel() {
         clinicTitleLabel = new JLabel(clinic.getClinicName(), SwingConstants.CENTER);
         clinicTitleLabel.setFont(new Font("Arial", Font.BOLD, 35));
@@ -108,7 +108,7 @@ public class NavigationBarUI extends JPanel {
     }
 
     // MODIFIES: button
-    // EFFECTS: Add styling and hover effects to the button (all navigation buttons)
+    // EFFECTS: Adds styling and hover effects to the button (all navigation buttons).
     public void styleButton(JButton button) {
         button.setFont(new Font("Arial", Font.BOLD, 20));
         button.setPreferredSize(new Dimension(500, 50));
@@ -124,7 +124,7 @@ public class NavigationBarUI extends JPanel {
     }
 
     // MODIFIES: button
-    // EFFECTS: Add hover effects to the button (all navigation buttons)
+    // EFFECTS: Adds hover effects to the button (all navigation buttons).
     public void addButtonEffects(JButton button) {
         button.addMouseListener(new MouseAdapter() {
             @Override

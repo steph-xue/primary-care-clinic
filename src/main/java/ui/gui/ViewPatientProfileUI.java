@@ -18,7 +18,7 @@ import java.util.Collections;
 // Edit image /images/edit.png retrieved from https://www.veryicon.com/icons/miscellaneous/linear-small-icon/
 // edit-246.html
 
-// ViewPatientProfileUI displays details of a specific patient profile
+// ViewPatientProfileUI displays details of a specific patient profile.
 public class ViewPatientProfileUI extends JPanel {
     private MainUI parent;
     private Clinic clinic;
@@ -32,7 +32,7 @@ public class ViewPatientProfileUI extends JPanel {
     private JButton newNoteButton;
     private JButton deletePatientButton;
 
-    // EFFECTS: Constructs a ViewPatientProfileUI JPanel displaying details for a specific patient
+    // EFFECTS: Constructs a ViewPatientProfileUI JPanel displaying details for a specific patient.
     public ViewPatientProfileUI(MainUI parent, Clinic clinic, Patient patient) {
         this.parent = parent;
         this.clinic = clinic;
@@ -57,7 +57,7 @@ public class ViewPatientProfileUI extends JPanel {
     }
 
     // MODIFIES: this
-    // EFFECTS: Create main container panel for overall centered layout
+    // EFFECTS: Creates main container panel for overall centered layout.
     public void createMainContainerPanel() {
         mainContainerPanel = new JPanel();
         mainContainerPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
@@ -65,7 +65,7 @@ public class ViewPatientProfileUI extends JPanel {
     }
 
     // MODIFIES: this
-    // EFFECTS: Create content panel for vertical box layout of patient data
+    // EFFECTS: Creates content panel for vertical box layout of patient data.
     public void createContentPanel() {
         contentPanel = new JPanel();
         contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.Y_AXIS));
@@ -75,7 +75,7 @@ public class ViewPatientProfileUI extends JPanel {
     }
 
     // MODIFIES: this
-    // EFFECTS: Creates and styles a scrolling pane for the user profile
+    // EFFECTS: Creates and styles a scrolling pane for the user profile.
     public void addScrollBar() {
         scrollPane = new JScrollPane(mainContainerPanel);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
@@ -85,7 +85,7 @@ public class ViewPatientProfileUI extends JPanel {
     }
 
     // MODIFIES: this
-    // EFFECTS: Create and add image for patient profile
+    // EFFECTS: Creates and add image for patient profile.
     public void addPatientImage() {
         ImageIcon patientImage = new ImageIcon(getClass().getResource("/images/patient.jpg"));
         patientImage = new ImageIcon(patientImage.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH));  
@@ -103,8 +103,8 @@ public class ViewPatientProfileUI extends JPanel {
     }
 
     // MODIFIES: this
-    // EFFECTS: Create and add panels for patient data to add to the contentPanel (demographic/personal and 
-    // medical information)
+    // EFFECTS: Creates and add panels for patient data to add to the contentPanel (demographic/personal and 
+    // medical information).
     public void addPatientInfo() {
         JPanel firstNamePanel = createPanel("First Name: ", patient.getFirstName(), "firstName");
         JPanel lastNamePanel = createPanel("Last Name: ", patient.getLastName(), "lastName");
@@ -128,8 +128,8 @@ public class ViewPatientProfileUI extends JPanel {
         contentPanel.add(medicalConditionsPanel);
     }
 
-    // EFFECTS: Create and style a panel for a patient data field with the header, data, and edit button;
-    // returns it as a JPanel
+    // EFFECTS: Creates and style a panel for a patient data field with the header, data, and edit button.
+    // Returns it as a JPanel.
     public JPanel createPanel(String header, String data, String fieldName) {
         JPanel panel = new JPanel();
         panel.setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -161,7 +161,7 @@ public class ViewPatientProfileUI extends JPanel {
     }
     
     // MODIFIES: this
-    // EFFECTS: update patient information with user inputed edits based on the field selected
+    // EFFECTS: Updates patient information with user inputed edits based on the field selected.
     public void updatePatientField(String key, String value, JComponent dataComponent) {
         switch (key) {
             case "firstName":
@@ -189,8 +189,8 @@ public class ViewPatientProfileUI extends JPanel {
     }
 
     // MODIFIES: this
-    // EFFECTS: Parses date of birth in (MM-DD-YYYY) string format to date object to set for the selected patient;
-    // shows error message if string date is not in the right format
+    // EFFECTS: Parses date of birth in (MM-DD-YYYY) string format to date object to set for the selected patient.
+    // Shows error message if string date is not in the right format.
     public void parseAndSetDateOfBirth(String dateOfBirth) {
         try {
             String[] parts = dateOfBirth.split("-");
@@ -238,8 +238,8 @@ public class ViewPatientProfileUI extends JPanel {
     }
 
     // MODIFIES: this
-    // EFFECTS: Parses age from string to integer to set for the selected patient; shows error message 
-    // if age is not in the right format
+    // EFFECTS: Parses age from string to integer to set for the selected patient. Shows error message 
+    // if age is not in the right format.
     public void parseAndSetAge(String age) {
         int parsedAge;
 
@@ -255,8 +255,8 @@ public class ViewPatientProfileUI extends JPanel {
     }
 
     // MODIFIES: this
-    // EFFECTS: Parses phn from string to long to set for the selected patient; shows error message
-    // if phn is not in the right format or if it is not 9-digits long
+    // EFFECTS: Parses phn from string to long to set for the selected patient. Shows error message
+    // if phn is not in the right format or if it is not 9-digits long.
     public void parseAndSetPersonalHealthNumber(String phn) {
         long parsedPersonalHealthNumber;
 
@@ -276,8 +276,8 @@ public class ViewPatientProfileUI extends JPanel {
         patient.setPersonalHealthNumber(parsedPersonalHealthNumber);
     }
 
-    // EFFECTS: Create and style editing button that allows the user to edit the selected field;
-    // returns the editing button as a JButton
+    // EFFECTS: Creates and style editing button that allows the user to edit the selected field.
+    // Returns the editing button as a JButton.
     public JButton createEditButton(String header, String fieldName, JComponent dataComponent) {
         JButton editButton = new JButton();
         ImageIcon editIcon = new ImageIcon(getClass().getResource("/images/edit.png"));
@@ -294,7 +294,7 @@ public class ViewPatientProfileUI extends JPanel {
     }
     
 
-    // EFFECTS: Add action listener to edit button to allow the user to update the selected field
+    // EFFECTS: Adds action listener to edit button to allow the user to update the selected field.
     public void addEditActionListener(JButton editButton, String header, String fieldName, JComponent dataComponent) {
         editButton.addActionListener(e -> {
             String newValue = (String) JOptionPane.showInputDialog(
@@ -312,8 +312,8 @@ public class ViewPatientProfileUI extends JPanel {
     }
     
 
-    // EFFECTS: Create and style a panel to display patient list data with the header and data (allergies,
-    // medications, medical conditions) and right-aligned add/remove buttons; returns it as a JPanel;
+    // EFFECTS: Creates and style a panel to display patient list data with the header and data (allergies,
+    // medications, medical conditions) and right-aligned add/remove buttons. Returns it as a JPanel.
     public JPanel createListPanel(String header, String data, String fieldName) {
         JPanel outerPanel = new JPanel();
         outerPanel.setLayout(new BoxLayout(outerPanel, BoxLayout.Y_AXIS));
@@ -378,7 +378,7 @@ public class ViewPatientProfileUI extends JPanel {
 
     // MODIFIES: patient
     // EFFECTS: Adds or removes an item from a list based on the field name and shows error message
-    // if trying to remove a non-existent item
+    // if trying to remove a non-existent item.
     public void updateListField(String fieldName, String value, boolean add) {
         boolean success = false;
         String formattedValue = capitalize(value);
@@ -418,7 +418,7 @@ public class ViewPatientProfileUI extends JPanel {
         }
     }
 
-    // EFFECTS: Removes the first occurrence of a target string from a list, ignoring case;
+    // EFFECTS: Removes the first occurrence of a target string from a list, ignoring case.
     private boolean removeCaseInsensitive(List<String> list, String target, Runnable removeAction) {
         for (String item : list) {
             if (item.equalsIgnoreCase(target)) {
@@ -429,14 +429,14 @@ public class ViewPatientProfileUI extends JPanel {
         return false;
     }
 
-    // EFFECTS: Capitalizes the first letter of the input string and lowercases the rest
+    // EFFECTS: Capitalizes the first letter of the input string and lowercases the rest.
     private String capitalize(String input) {
         if (input.length() == 0) return input;
         return input.substring(0, 1).toUpperCase() + input.substring(1).toLowerCase();
     }
 
     // MODIFIES: button
-    // EFFECTS: Styles small "Add" and "Remove" buttons
+    // EFFECTS: Styles small "Add" and "Remove" buttons.
     public void styleSmallButton(JButton button) {
         button.setFont(new Font("Arial", Font.PLAIN, 12));
         button.setBackground(new Color(200, 200, 255));
@@ -449,14 +449,14 @@ public class ViewPatientProfileUI extends JPanel {
     }
 
     // MODIFIES: this
-    // EFFECTS: Re-renders the patient profile screen to reflect changes
+    // EFFECTS: Re-renders the patient profile screen to reflect changes.
     public void refreshView() {
         parent.viewPatientProfileScreen(patient);
     }
     
     // MODIFIES: this
     // EFFECTS: Adds clinical notes in individual boxes to contentPanel or displays no notes if
-    // patient does not have any clinical notes
+    // patient does not have any clinical notes.
     public void addClinicalNotes() {
         addClinicalNoteTitle();
 
@@ -474,7 +474,7 @@ public class ViewPatientProfileUI extends JPanel {
     }
 
     // MODIFIES: this
-    // EFFECTS: Adds clinical note section title to contentPanel
+    // EFFECTS: Adds clinical note section title to contentPanel.
     public void addClinicalNoteTitle() {
         contentPanel.add(Box.createRigidArea(new Dimension(0, 30)));
         JLabel notesTitle = new JLabel("Clinical Notes");
@@ -484,7 +484,7 @@ public class ViewPatientProfileUI extends JPanel {
         contentPanel.add(notesTitle);
     }
 
-    // EFFECTS: Creates a no clinical notes label; returns it as a JLabel
+    // EFFECTS: Creates a no clinical notes label. Returns it as a JLabel.
     public JLabel createNoNotesLabel() {
         JLabel noNotesLabel = new JLabel("No clinical notes avaliable");
         noNotesLabel.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -495,7 +495,7 @@ public class ViewPatientProfileUI extends JPanel {
 
     // MODIFIES: this
     // EFFECTS: Creates a clinical note box with all note data with editing buttons (title, provider, body) 
-    // and a delete clinical note button; returns it as a JPanel
+    // and a delete clinical note button. Returns it as a JPanel.
     public JPanel createClinicalNoteBox(ClinicalNote note) {
         JPanel notePanel = createNotePanel();
 
@@ -513,8 +513,8 @@ public class ViewPatientProfileUI extends JPanel {
         return notePanel;
     }
 
-    // EFFECTS: Creates a clinical note panel for each seperate note with styling for the box;
-    // returns it as a JPanel
+    // EFFECTS: Creates a clinical note panel for each seperate note with styling for the box.
+    // Returns it as a JPanel.
     public JPanel createNotePanel() {
         JPanel notePanel = new JPanel();
         notePanel.setLayout(new BoxLayout(notePanel, BoxLayout.Y_AXIS));
@@ -528,8 +528,8 @@ public class ViewPatientProfileUI extends JPanel {
         return notePanel;
     }
 
-    // EFFECTS: Creates a clinical note title panel with styling and an editing button; 
-    // returns it as a JPanel
+    // EFFECTS: Creates a clinical note title panel with styling and an editing button. 
+    // Returns it as a JPanel.
     public JPanel createNoteTitlePanel(ClinicalNote note) {
         JPanel panel = new JPanel();
         panel.setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -546,8 +546,8 @@ public class ViewPatientProfileUI extends JPanel {
         return panel;
     }
 
-    // EFFECTS: Creates a clinical note date panel with styling and an editing button; 
-    // returns it as a JPanel
+    // EFFECTS: Creates a clinical note date panel with styling and an editing button. 
+    // Returns it as a JPanel.
     public JPanel createNoteDatePanel(ClinicalNote note) {
         JPanel panel = new JPanel();
         panel.setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -561,8 +561,8 @@ public class ViewPatientProfileUI extends JPanel {
         return panel;
     }
 
-    // EFFECTS: Creates a clinical note provider panel with styling and an editing button;
-    // returns it as a JPanel 
+    // EFFECTS: Creates a clinical note provider panel with styling and an editing button.
+    // Returns it as a JPanel. 
     public JPanel createNoteProviderPanel(ClinicalNote note) {
         JPanel panel = new JPanel();
         panel.setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -579,8 +579,8 @@ public class ViewPatientProfileUI extends JPanel {
         return panel;
     }
 
-    // EFFECTS: Creates a clinical note body panel with styling and an editing button;
-    // returns it as a JPanel 
+    // EFFECTS: Creates a clinical note body panel with styling and an editing button.
+    // Returns it as a JPanel. 
     public JPanel createNoteBodyPanel(ClinicalNote note) {
         JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
@@ -594,7 +594,7 @@ public class ViewPatientProfileUI extends JPanel {
         return panel;
     }
 
-    // EFFECTS: Creates a JTextArea for the clinical note body; returns it as a JTextArea
+    // EFFECTS: Creates a JTextArea for the clinical note body. Returns it as a JTextArea.
     public JTextArea createTextAreaBody(ClinicalNote note) {
         JTextArea bodyTextArea = new JTextArea(note.getClinicalNoteBody());
         bodyTextArea.setFont(new Font("Arial", Font.PLAIN, 18));
@@ -606,7 +606,7 @@ public class ViewPatientProfileUI extends JPanel {
     }
 
     // MODIFIES: this, dataComponent
-    // EFFECTS: update clinical note information with user inputed edits based on the field selected
+    // EFFECTS: Updates clinical note information with user inputed edits based on the field selected.
     public void updateNoteField(ClinicalNote note, String key, String value, JComponent dataComponent) {
         switch (key) {
             case "title":
@@ -624,8 +624,8 @@ public class ViewPatientProfileUI extends JPanel {
         }   
     }
 
-    // EFFECTS: Create and style editing button for each of the clinical note fields that allows the user
-    // to edit the selected field; returns the editing button as a JButton
+    // EFFECTS: Creates and style editing button for each of the clinical note fields that allows the user
+    // to edit the selected field. Returns the editing button as a JButton.
     public JButton createEditNoteButton(ClinicalNote note, String fieldName, JComponent dataComponent) {
         JButton editButton = new JButton();
         ImageIcon editIcon = new ImageIcon(getClass().getResource("/images/edit.png"));
@@ -643,7 +643,7 @@ public class ViewPatientProfileUI extends JPanel {
     }
 
     // MODIFIES: editButton
-    // EFFECTS: Add action listener to edit button to allow the user to edit the selected field
+    // EFFECTS: Adds action listener to edit button to allow the user to edit the selected field.
     public void addEditNoteActionListener(ClinicalNote note, JButton editButton, String fieldName, 
             JComponent dataComponent) {
         editButton.addActionListener(e -> {
@@ -663,7 +663,7 @@ public class ViewPatientProfileUI extends JPanel {
 
     // MODIFIES: this, note
     // EFFECTS: Creates a delete note button panel with a delete note button for a clinical note
-    // with an action listener to delete the note from the clinic; returns it as a JPanel
+    // with an action listener to delete the note from the clinic. Returns it as a JPanel.
     public JPanel createDeleteNoteButtonPanel(ClinicalNote note) {
         JPanel panel = new JPanel();
         panel.setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -681,7 +681,7 @@ public class ViewPatientProfileUI extends JPanel {
     }
 
     // MODIFIES: button
-    // EFFECTS: Add styling to the button (delete clinical note button)
+    // EFFECTS: Adds styling to the button (delete clinical note button).
     public void styleButtonDeleteNote(JButton button) {
         button.setFont(new Font("Arial", Font.PLAIN, 14));
         button.setPreferredSize(new Dimension(150, 30));
@@ -696,7 +696,7 @@ public class ViewPatientProfileUI extends JPanel {
     }
 
     // MODIFIES: button
-    // EFFECTS: Add hover effects to the button (delete clinical note button)
+    // EFFECTS: Adds hover effects to the button (delete clinical note button).
     public void addButtonEffectsDeleteNote(JButton button) {
         button.addMouseListener(new MouseAdapter() {
             @Override
@@ -712,7 +712,7 @@ public class ViewPatientProfileUI extends JPanel {
     }
 
     // MODIFIES: this
-    // EFFECTS: Creates a button panel containing the delete patient and new clinical note buttons
+    // EFFECTS: Creates a button panel containing the delete patient and new clinical note buttons.
     private void addButtonPanel() {
         buttonPanel = new JPanel();
         buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
@@ -732,7 +732,7 @@ public class ViewPatientProfileUI extends JPanel {
     }
 
     // MODIFIES: this
-    // EFFECTS: Removes patient from the clinic and redirects user to the view all patients screen
+    // EFFECTS: Removes patient from the clinic and redirects user to the view all patients screen.
     public void removePatient() {
         clinic.removePatient(patient);
         parent.getViewPatientsScreen().loadPatients();
@@ -740,7 +740,7 @@ public class ViewPatientProfileUI extends JPanel {
     }
 
     // MODIFIES: button
-    // EFFECTS: Add styling to the button (new clinical note button)
+    // EFFECTS: Adds styling to the button (new clinical note button).
     public void styleButtonNewNote(JButton button) {
         button.setFont(new Font("Arial", Font.BOLD, 20));
         button.setPreferredSize(new Dimension(500, 50));
@@ -756,7 +756,7 @@ public class ViewPatientProfileUI extends JPanel {
     }
 
     // MODIFIES: button
-    // EFFECTS: Add styling to the button (delete clinical note button)
+    // EFFECTS: Adds styling to the button (delete clinical note button).
     public void styleButtonDelete(JButton button) {
         button.setFont(new Font("Arial", Font.BOLD, 20));
         button.setPreferredSize(new Dimension(500, 50));
@@ -772,7 +772,7 @@ public class ViewPatientProfileUI extends JPanel {
     }
 
     // MODIFIES: button
-    // EFFECTS: Add hover effects to the button (new clinical note button)
+    // EFFECTS: Adds hover effects to the button (new clinical note button).
     public void addButtonEffectsAdd(JButton button) {
         button.addMouseListener(new MouseAdapter() {
             @Override
@@ -788,7 +788,7 @@ public class ViewPatientProfileUI extends JPanel {
     }
 
     // MODIFIES: button
-    // EFFECTS: Add hover effects to the button (delete clinical note button)
+    // EFFECTS: Adds hover effects to the button (delete clinical note button).
     public void addButtonEffectsDelete(JButton button) {
         button.addMouseListener(new MouseAdapter() {
             @Override

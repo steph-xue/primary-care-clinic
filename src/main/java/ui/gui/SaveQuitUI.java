@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-// SaveQuitUI displays the save and quit screen with an option to save and quit or quit without saving
+// SaveQuitUI displays the save and quit screen with an option to save and quit or quit without saving.
 public class SaveQuitUI extends JPanel {
     private MainUI parent;
     private JPanel contentPanel;
@@ -13,7 +13,7 @@ public class SaveQuitUI extends JPanel {
     private JButton saveQuitButton;
     private JButton quitButton;
 
-    // EFFECTS: Constructs a SaveQuitUI JPanel
+    // EFFECTS: Constructs a SaveQuitUI JPanel.
     public SaveQuitUI(MainUI parent) {
         this.parent = parent;
         
@@ -38,7 +38,7 @@ public class SaveQuitUI extends JPanel {
     }
 
     // MODIFIES: this
-    // EFFECTS: Creates a message label to save and quit or quit without saving
+    // EFFECTS: Creates a message label to save and quit or quit without saving.
     public void createMessageLabel() {
         messageLabel = new JLabel();
         messageLabel.setText("Would you like to save your progress before exiting? ");
@@ -48,7 +48,7 @@ public class SaveQuitUI extends JPanel {
     }
 
     // MODIFIES: this
-    // EFFECTS: Creates a save and quit button
+    // EFFECTS: Creates a save and quit button.
     public void createSaveQuitButton() {
         saveQuitButton = new JButton("Save and quit");
         styleButton(saveQuitButton);
@@ -56,7 +56,7 @@ public class SaveQuitUI extends JPanel {
     }
 
     // MODIFIES: this
-    // EFFECTS: Creates a quit without saving button
+    // EFFECTS: Creates a quit without saving button.
     public void createQuitButton() {
         quitButton = new JButton("Quit without saving");
         styleButton(quitButton);
@@ -64,7 +64,7 @@ public class SaveQuitUI extends JPanel {
     }
 
     // MODIFIES: button
-    // EFFECTS: Add styling to the button (save and quit/quit without saving buttons)
+    // EFFECTS: Adds styling to the button (save and quit/quit without saving buttons).
     public void styleButton(JButton button) {
         button.setFont(new Font("Arial", Font.BOLD, 20));
         button.setPreferredSize(new Dimension(500, 50));
@@ -80,7 +80,7 @@ public class SaveQuitUI extends JPanel {
     }
 
     // MODIFIES: button
-    // EFFECTS: Add hover effects to button (save and quit/quit without saving buttons)
+    // EFFECTS: Adds hover effects to button (save and quit/quit without saving buttons).
     public void addButtonEffects(JButton button) {
         button.addMouseListener(new MouseAdapter() {
             @Override

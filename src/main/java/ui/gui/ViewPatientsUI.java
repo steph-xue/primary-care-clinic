@@ -11,7 +11,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-// ViewPatientsUI displays the homepage with a table view of all patients in the clinic
+// ViewPatientsUI displays the homepage with a table view of all patients in the clinic.
 public class ViewPatientsUI extends JPanel {
     private MainUI parent;
     private Clinic clinic;
@@ -20,7 +20,7 @@ public class ViewPatientsUI extends JPanel {
     private DefaultTableModel tableModel;
     private NavigationBarUI navBar;
 
-    // EFFECTS: Constructs a ViewPatientsUI JPanel with a navigation bar, displaying all patients in a table format
+    // EFFECTS: Constructs a ViewPatientsUI JPanel with a navigation bar, displaying all patients in a table format.
     public ViewPatientsUI(MainUI parent, Clinic clinic) {
         this.parent = parent;
         this.clinic = clinic;
@@ -37,7 +37,7 @@ public class ViewPatientsUI extends JPanel {
     }
 
     // MODIFIES: this
-    // EFFECTS: Creates a table to display all patients and loads patient data
+    // EFFECTS: Creates a table to display all patients and loads patient data.
     public void createTable() {
         String[] columnNames = {"First Name", "Last Name", "Date of Birth (DOB)", "Age", 
             "Personal Health Number (PHN)"};
@@ -58,7 +58,7 @@ public class ViewPatientsUI extends JPanel {
     }
 
     // MODIFIES: this
-    // EFFECTS: Adjusts patient table formatting
+    // EFFECTS: Adjusts patient table formatting.
     public void adjustTableFormatting() {
         patientTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         patientTable.setSelectionBackground(new Color(230, 230, 230));
@@ -80,7 +80,7 @@ public class ViewPatientsUI extends JPanel {
     }
 
     // MODIFIES: this
-    // EFFECTS: Adjusts patient table header formatting
+    // EFFECTS: Adjusts patient table header formatting.
     public void adjustTableHeader() {
         JTableHeader tableHeader = patientTable.getTableHeader();
         tableHeader.setFont(new Font("Arial", Font.BOLD, 20));
@@ -88,7 +88,7 @@ public class ViewPatientsUI extends JPanel {
     }
 
     // MODIFIES: this
-    // EFFECTS: Sets patient table column widths
+    // EFFECTS: Sets patient table column widths.
     public void setColumnWidths() {
         patientTable.getColumnModel().getColumn(0).setPreferredWidth(150);
         patientTable.getColumnModel().getColumn(1).setPreferredWidth(150);
@@ -98,7 +98,7 @@ public class ViewPatientsUI extends JPanel {
     }
 
     // MODIFIES: this
-    // EFFECTS: Loads patient information into the table
+    // EFFECTS: Loads patient information into the table.
     public void loadPatients() {
         tableModel.setRowCount(0);
         for (Patient p: clinic.getPatients()) {
@@ -108,13 +108,13 @@ public class ViewPatientsUI extends JPanel {
         }
     }
 
-    // EFFECTS: Returns navigation bar so MainUI can update it
+    // EFFECTS: Returns navigation bar so MainUI can update it.
     public NavigationBarUI getNavBar() {
         return navBar;
     }
 
     // MODIFIES: this
-    // EFFECTS: Adds double click event listener to the table rows to view a specific patient profile
+    // EFFECTS: Adds double click event listener to the table rows to view a specific patient profile.
     public void addDoubleClickListener() {
         patientTable.addMouseListener(new MouseAdapter() {
             @Override

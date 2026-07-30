@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-// StartScreenUI displays the start screen with an option to load a save from file or start a new clinic
+// StartScreenUI displays the start screen with an option to load a save from file or start a new clinic.
 public class StartScreenUI extends JPanel {
     private MainUI parent;
     private JPanel contentPanel;
@@ -13,7 +13,7 @@ public class StartScreenUI extends JPanel {
     private JButton loadButton;
     private JButton newClinicButton;
 
-    // EFFECTS: Constructs a StartScreenUI JPanel
+    // EFFECTS: Constructs a StartScreenUI JPanel.
     public StartScreenUI(MainUI parent) {
         this.parent = parent;
 
@@ -38,7 +38,7 @@ public class StartScreenUI extends JPanel {
     }
 
     // MODIFIES: this
-    // EFFECTS: Creates a message label to load from file or create a new clinic
+    // EFFECTS: Creates a message label to load from file or create a new clinic.
     public void createMessageLabel() {
         messageLabel = new JLabel();
         messageLabel.setText("Load from file or create a new clinic: ");
@@ -48,7 +48,7 @@ public class StartScreenUI extends JPanel {
     }
 
     // MODIFIES: this
-    // EFFECTS: Creates a load from file button
+    // EFFECTS: Creates a load from file button.
     public void createLoadButton() {
         loadButton = new JButton("Load clinic data from file");
         styleButton(loadButton);
@@ -56,7 +56,7 @@ public class StartScreenUI extends JPanel {
     }
 
     // MODIFIES: this
-    // EFFECTS: Creates a create a new clinic button
+    // EFFECTS: Creates a create a new clinic button.
     public void createNewClinicButton() {
         newClinicButton = new JButton("Create a new clinic");
         styleButton(newClinicButton);
@@ -64,7 +64,7 @@ public class StartScreenUI extends JPanel {
     }
 
     // MODIFIES: button
-    // EFFECTS: Add styling to the button (load from file/create a new clinic buttons)
+    // EFFECTS: Adds styling to the button (load from file/create a new clinic buttons).
     public void styleButton(JButton button) {
         button.setFont(new Font("Arial", Font.BOLD, 20));
         button.setPreferredSize(new Dimension(500, 50));
@@ -80,7 +80,7 @@ public class StartScreenUI extends JPanel {
     }
 
     // MODIFIES: button
-    // EFFECTS: Add hover effects to the button (load from file/create a new clinic buttons)
+    // EFFECTS: Adds hover effects to the button (load from file/create a new clinic buttons).
     public void addButtonEffects(JButton button) {
         button.addMouseListener(new MouseAdapter() {
             @Override

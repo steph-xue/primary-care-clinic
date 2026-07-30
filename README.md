@@ -8,7 +8,7 @@
 </h4>
 
 <p align="center">
-  <img src="docs/screenshots/logo.png" alt="logo" width="500"/>
+  <img src="docs/images/logo.png" alt="logo" width="500"/>
 </p>
 
 <p align="center">
@@ -22,7 +22,7 @@
 - [Overview](#overview)
 - [Features](#features)
 - [Tech Stack](#tech-stack)
-- [User Interface Options](#user-interface-options)
+- [User Interface Modes](#user-interface-modes)
 - [Object-Oriented Design Reflections](#object-oriented-design-reflections)
 - [JSON-Based Data Persistence](#json-based-data-persistence)
 - [Unit Testing](#unit-testing)
@@ -40,7 +40,7 @@ Through my experiences working in healthcare across community pharmacy, hospital
 
 ## Overview
 
-This project is an electronic health record desktop application designed to streamline patient management for clinicians working in primary care clinic settings. It is intended for use by physicians, clinical pharmacists, nurses, and other medical professionals to support accurate record keeping and improve patient care. It allows clinicians to manage a sorted list of registered patients, add new patient profiles, remove patients from the system, and update existing information. Each patient record tracks demographic and clinical information, including name, date of birth, age, personal health number, allergies, medications, and medical conditions, alongside a full history of clinical notes documenting past visits. The application is built entirely in Java, with a graphical interface built using Java Swing and a parallel command-line interface, both sharing the same underlying model and persistence logic so behavior stays consistent regardless of how the application is accessed. JSON handles serialization, allowing clinic data to be saved to and loaded from files between sessions, and JUnit Jupiter is used for unit testing across the model and persistence layers. GitHub Actions automatically builds and publishes a downloadable Windows installer.
+This project is an electronic health record desktop application designed to streamline patient management for clinicians working in primary care clinic settings. It is intended for use by physicians, clinical pharmacists, nurses, and other medical professionals to support accurate record keeping and improve patient care. It allows clinicians to manage a sorted list of registered patients, add new patient profiles, remove patients from the system, and update existing information. Each patient record tracks demographic and clinical information, including name, date of birth, age, personal health number, allergies, medications, and medical conditions, alongside a full history of clinical notes documenting past visits. The application is built entirely in Java and can be run in two modes: a graphical interface (GUI) built using Java Swing or a command-line interface (CLI). Both modes share the same underlying model and persistence logic so behavior stays consistent regardless of how the application is accessed. JSON handles serialization, allowing clinic data to be saved to and loaded from files between sessions, and JUnit Jupiter is used for unit testing across the model and persistence layers. GitHub Actions automatically builds and publishes a downloadable Windows installer.
 
 <br>
 
@@ -190,25 +190,25 @@ Upon quitting the application, users are given the option to save their clinic d
 
 | Layer | Technologies |
 |---|---|
-| Frontend | Java Swing (graphical user interface) |
+| Frontend | Java Swing (GUI) |
 | Backend | Java (core application logic) |
 | Storage | JSON (local file storage) |
 | Testing | JUnit Jupiter (unit testing framework) |
 | CI/CD | GitHub Actions (automated build of a downloadable Windows installer) |
 
-> **Note:** Java Swing powers the graphical user interface, but the application can also be run through a command-line interface built in Java, both sharing the same underlying model and persistence logic.
+> **Note:** Java Swing powers the GUI but the application can also be run through the CLI.
 
 <br>
 
-## User Interface Options
+## User Interface Modes
 
 To maximize usability and accessibility, the application implements two distinct user interfaces that share the same backend logic. Both interfaces interact with the same model and persistence layers, ensuring consistent behavior regardless of how the application is accessed.
 
-### Command-Line Interface (CLI)
-Found in `Main.java` in the cli folder (`src/main/java/ui/cli/Main.java`), the CLI offers a text-based interface ideal for terminal-based workflows, with simple menu-driven navigation and input validation to guide users through interactions.
-
 ### Graphical User Interface (GUI)
 Found in `MainUI.java` in the gui folder (`src/main/java/ui/gui/MainUI.java`), the GUI provides a visual, user-friendly experience with clearly structured panels and a navigation bar that enables smooth switching between screens.
+
+### Command-Line Interface (CLI)
+Found in `Main.java` in the cli folder (`src/main/java/ui/cli/Main.java`), the CLI offers a text-based interface ideal for terminal-based workflows, with simple menu-driven navigation and input validation to guide users through interactions.
 
 <br>
 
@@ -310,24 +310,24 @@ There are some things that would be refactored to improve the design of this pro
 
 ## Getting Started
 
-Download the installer below for Windows, built via [GitHub Actions](https://github.com/steph-xue/primary-care-clinic/actions), or follow the instructions under the download link to build and run the application from source instead, which works on macOS, Windows, and Linux.
+Download the installer below for Windows, built via [GitHub Actions](https://github.com/steph-xue/primary-care-clinic/actions), or follow the instructions under the download link to build and run the application from source, which works on macOS, Windows, and Linux.
 
 [![Download for Windows](https://img.shields.io/badge/Download-Windows-blue?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/steph-xue/primary-care-clinic/releases/latest/download/PrimaryCareClinic-windows.zip) 
-
 > **Note:** Neither macOS nor Linux installers are available. macOS requires a paid Apple Developer Program membership for code signing and notarization, and the Windows installer is a native executable that won't run on other operating systems. Mac and Linux users can still run the application by building from source below.
 
 <br>
 
 **Prerequisites**
 
-Make sure Java (JDK 21 or later) is installed before you begin. You can check by running the command below, which should print a version number.
+Make sure the Java Development Kit (JDK) is installed before you begin. You can verify your installation by running the following command, which should print the installed Java version:
+> **Note:** The project only requires JDK 9+ to compile and run, but JDK 21+ is recommended since that's the version this project is built and tested against.
 ```bash
 java -version
 ```
 
 <br>
 
-**1. Clone the repository**
+**1. Clone the Repository**
 
 This downloads a copy of the project to your computer and moves you into the project folder.
 ```bash
@@ -337,32 +337,32 @@ cd primary-care-clinic
 
 <br>
 
-**2. Run the application**
+**2. Run the Application**
 
-You can run the application either from an IDE or from the terminal. Both the graphical (GUI) and command-line (CLI) versions share the same underlying model and persistence logic.
+You can run the application in an IDE or directly from the terminal. 
 
 <br>
 
-*Option A: Run from an IDE*
+*Option A: Run in an IDE*
 
 Open the cloned `primary-care-clinic` folder in an IDE such as [VS Code](https://code.visualstudio.com/) with the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) installed. The classpath is preconfigured via `.vscode/settings.json`, so no further setup is needed.
-- For the **graphical version**, open `MainUI.java` (`src/main/java/ui/gui/MainUI.java`) and click the "Run" button above the `main` method.
-- For the **command-line version**, open `Main.java` (`src/main/java/ui/cli/Main.java`) and click the "Run" button above the `main` method.
+- **Graphical User Interface (GUI)**: Open `MainUI.java` (`src/main/java/ui/gui/MainUI.java`) and click the "Run" button above the `main` method.
+- **Command-Line Interface (CLI)**: Open `Main.java` (`src/main/java/ui/cli/Main.java`) and click the "Run" button above the `main` method.
 
 <br>
 
-*Option B: Run from the terminal*
+*Option B: Run from the Terminal*
 
 First, compile all the Java source files into the `bin` folder.
 ```bash
 mkdir -p bin
 javac -cp "lib/*" -d bin $(find src/main/java -name "*.java")
 ```
-- For the **graphical version**, run:
+- **Graphical User Interface (GUI)**: Run the following command:
   ```bash
   java -cp "bin:src/main/resources:lib/*" ui.gui.MainUI
   ```
-- For the **command-line version**, run:
+- **Command-Line Interface (CLI)**: Run the following command:
   ```bash
   java -cp "bin:src/main/resources:lib/*" ui.cli.Main
   ```

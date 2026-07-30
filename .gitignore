@@ -1,7 +1,7 @@
-# Build output
+# Build and generated files
 *.class
 bin/
 build/
 
-# Editor/OS files
+# Operating system files
 .DS_Store
